@@ -1,0 +1,537 @@
+Om
+Day-2
+6th Aug 2024 (Tuesday)
+https://www.youtube.com/watch?v=5Y5TKhxv8iE&t=41s
+
+Linux commands:
+1. LS:
+
+ls    ---->List of the files & Directories
+ls -l ---->"l" stands for long listing   
+            shows List of the files & Directories in current working directory
+            but with some detailed description
+  
+ls -a ---->"a" stands for all
+      ---->Displays all Hidden files/folders
+ls -all ---->it shows files & directories along with Hidden files
+            (its going to give brief description abt files & directories)
+ls -l ---->shows all files & directories but nor Hidden files
+ls -lt ---->time
+            arranges the time based on creations
+       ----->in decending order
+ls -ltr  ----->Acending order
+
+so Instead of using all these we can use ll,
+ll ---->Long Listing
+
+
+Diff b/w ls & ls -a
+ls    ---->displays all files/folders
+ls -a ---->Displays all Hidden files/folders
+
+2. echo :
+
+3. Date :
+
+4. cal :
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Lab:
+Linux:
+
+go to Desktop,
+right click on it,
+new,
+to create a folder---->name it as Linux
+
+right click on it to show more,
+Open Git Bash here,
+
+$ 
+
+:::::::::::::::::::::::
+Task:1
+
+1) DIR-1
+    :------>DIR-2
+    :        :------>DIR-4
+    :                  :----->123.txt
+    :------>DIR-3
+              :------>DIR-5
+                       :------>DIR-6
+                                 :----->345.txt
+            
+
+$ mkdir DIR-1
+$ pwd
+/c/Users/sowmy/Desktop/Linunx-
+
+$ ls
+DIR-1 file1.txt
+
+$ cd DIR-1
+$ pwd
+
+$ mkdir DIR-2 DIR-3
+$ ls
+DIR-2 DIR-3
+
+$ cd  DIR-2
+$ pwd
+
+$ mkdir DIR-4
+$ ls 
+DIR-4
+
+$ cd DIR-4
+$ ls
+$ pwd
+$ touch 123.txt
+
+$ ls
+123.txt
+
+:::::::::::::::::::::::::::
+ cd ..
+  520  ls
+  521  cd ..
+  522  pwd
+  523  ls
+  524  pwd
+  525  mkdir Dir-3
+  526  ls
+  527  ls
+cd Dir-3
+ls
+pwd
+mkdir Dir-5
+ls
+pwd
+ls
+mkdir Dir-6
+ls
+cd Dir-6
+ls
+pwd
+touch 345.txt
+
+
+:::::::::::::::::::::::
+
+Sachin
+   :----->A----->abc.txt
+   :----->B
+   :----->C
+
+go to Gitbash here,
+
+$ mkdir -p Sachin/A  here -p is parent directory
+
+$ ls
+123.txt a Sachin
+
+$ cd Sachin
+
+$ ls
+Abc/
+
+$ cd ../..
+$ ls
+dir4
+
+$ cd ../..
+$ ls
+Dir-1 file1.txt
+
+$ rm -rr Dir-1
+
+$ ls
+file1.txt
+
+::::::::::::::::::::::::
+
+$ mkdir -p abc/bca
+
+# I want to delete Multiple Directories at the same time
+$ rmdir abc/bca
+
+::::::::::::::::::::::::::
+
+$ mkdir -p abc/bca
+
+$ ls
+abc file1.txt
+
+$ cd abc 
+
+$ ls
+bca
+
+$ cd bca
+
+$ touch 123.txt
+
+$ cd ../..
+
+$ ls
+abc file1.txt
+
+$ rmdir abc/bca
+error
+
+$ ls abc/bca
+123.txt
+
+$ rm -r abc/bca 
+--------------------------
+
+rmdir ---->removes Empty Directories(zero content)
+      (used to delete Empty directories)
+rm    ---->  removes files/Directories
+(Non-Empty Directories, with contents)
+
+---------------------------
+$ ls abc/bca
+123.txt
+
+$ rm -r abc/bca ----->here r is recursively
+
+___________________________
+
+$ mkdir -p abc/bca
+
+$ touch abc/bca/123 
+
+$ ls abc/bca/
+123
+
+$ rm -r abc/bca/ --->non empty dir
+
+or
+$ rm -f abc/bca/ 
+error ---->why??????
+Ans:
+rm -rf abc/bca
+
+here,
+r is recursively 
+f is forcibly delete it 
+
+till here to create Multiple Directories & Files
+:::::::::::::::::::::::::::::::::
+
+$ touch 123.txt ---->to create text based files
+
+$ touch 1234 badsba
+
+$ ls
+123.txt
+1234 
+badsba
+:
+:
+
+$ touch -r abc bca
+
+$ ls 
+123.txt
+1234 
+badsba
+abc 
+bca
+
+lite
+:::::::::::::::::::
+cd ---->Getting inside a particular folder
+   ----->moves Forward or Backward
+
+$ cd 
+
+EG:
+cd Linux ---->1step
+cd Linux/abc---->2step
+cd Linux/abc/bca/a---->4step
+
+
+CD ---->1
+        :---->2
+
+$ ls
+123.txt 1234 abc badsba bca file1.txt
+
+$ pwd
+----->Linux folder
+$ cd abc
+$ pwd
+----->currently in abc folder
+
+$ 
+
+EG:
+cd .. ---->1step Backward
+cd ../.. ---->2step Backward
+cd ../../.. ---->3step Backward
+cd ../../../.. ---->4step Backward
+
+$ cd ..
+$ pwd
+----->Linux folder
+$ cd abc
+$ pwd
+----->abc
+$ cd -
+(note: works in Linux server/not in Git-Bash)
+
+EG:
+cd - (hyphen)---->getting back to previous folder
+
+:::::::::::::::::::::::::::::::::::::::
+LS:
+ls ---->List of the files & Directories
+ls -l ---->"l" stands for long listing
+      
+ls -a ---->"a" stands for all
+      ---->Displays all Hidden files/folders
+
+ls -all ---->it shows files & directories along with Hidden files
+(its going to give brief description abt files & directories)
+ls -l ---->shows all files & directories but nor Hidden files
+ls -lt ---->time
+arranges the time based on creations
+       ----->in decending order
+ls -ltr  ----->Acending order
+
+so Instead of using all these we can use ll,
+ll ---->Long Listing
+
+
+Diff b/w ls & ls -a
+ls    ---->displays all files/folders
+ls -a ---->Displays all Hidden files/folders
+
+$ ls ---->shows List of the files & Directories in current working directory
+          or
+     ---->displays all files/folders
+$ pwd
+----->currently in Linux folder
+
+$ ls -l ---->long listing
+shows List of the files & Directories in current working directory
+but with some detailed description
+
+drwxr - Sowmya 
+
+$ ls -a ---->Displays all Hidden files/folders
+./ ../ 123.txt 1234 abc bca badsba file1.txt
+ 
+$ ls -l ---->shows all files & directories but nor Hidden files
+
+$ ls -lt
+
+diff b/w ls -lt & ls -l ????
+ls -lt ----->decending order
+ls -l  ----->
+ls -ltr  ----->Acending order
+
+$ ll 
+:
+:---->give all the details
+
+::::::::::::::::::::::::::::::::::::
+
+create a dummy AWS EC2 server,
+$ sudo mkdir -p /ABC/sachin movies music/indian
+
+# tree
+.
+|----->abc
+|----->movies
+|----->music
+       |------>indian
+
+$ cd movies
+$ sudo mkdir asa
+$ tree
+.
+|----asa
+
+$ cd ..
+$ ls
+abc movies music
+
+# tree
+.
+|----->abc
+|----->movies
+|----->music
+       |------>indian
+
+::::::::::::::::::::::::::::::::
+Lets create a file
+
+$ touch 123.txt
+
+$ stat 123.txt ---->it gives the detailed information about ur particular text file
+:
+:
+:file of the txt file
+:how many blocks r there
+:
+
+:::::::::::::::::::::::::::::::::
+CAT: View/reads the file
+
+task:
+
+go to windows,
+in 123.txt file
+add---->this is linux classes
+
+go to Git Bash here,
+$ ls 
+123.txt
+1234
+abc
+bca
+file1.txt
+badsba
+
+$ cat 123.txt
+this is linux classes
+
+cat is the command,
+which is able to view the content(this is linux classes) of the file(123.txt)
+
+$ cat file1.txt
+5dsm
+kfsako;
+lkmbr
+mvf
+mlkrmrm
+mnkl
+
+$ 
+
+59:00
+
+cat: view the content of files
+
+create some file ---->touch abc.txt
+then we need to add that file ---->add somthing like welcome to India
+then we can view that file ---->add
+
+cat > 1234.txt
+ctrol + D --->
+
+go to Gitbash here,
+$ touch 1234.txt
+
+$ cat>1234.txt
+jbsdkmknbkn ----->asking to add some content in this
+
+control + D --->to come out from the file
+
+$ cat 1234.txt
+jbsdkmknbkn
+
+note:
+instead of using touch, adding the content,
+we can use cat>1234.txt
+
+eg:
+$ cat > file3.txt
+
+click on Enter
+& then add some content
+
+this is my laptop
+
+press Control + D --->to come out from the file
+
+# to  view the file
+$ cat file3.txt 
+this is my laptop
+
+note:
+cat usages:
+1. VIEW: to view the file/content ---->cat filename.txt
+2. to create a file ---->cat>filename.txt
+3. we can able to copy that ---->cat file3.txt > file4.txt
+(to the content of 1 file to another file)
+----------------------------
+Eg:
+$ ls
+123.txt 1234
+1234.txt
+abc
+badsba 
+bca
+file1.txt
+file3.txt
+
+$ cat file3.txt
+this is my laptop
+
+$ cat file3.txt > file4.txt
+so this command says that
+wtever the content present in file3.txt,
+all the content will copied into file4.txt
+& it will create a new file with provided name
+
+# to confirm new file created or not?
+$ ls
+:
+:
+file4.txt ---->new file is created
+
+$ cat file4.txt
+this is my laptop
+
+:::::::::::::::::::::
+Eg:
+cat file3.txt
+this is my laptop
+
+$ cat>abcd.txt
+will add the content to it 
+Welcome to the class
+
+$ cat abcd.txt
+Welcome to the class
+
+$ cat abcd.txt > file3.txt
+wt happens?
+welcome to the class ---->is copy pasted to file3
+or
+it will overrides the file,
+means wtever the content in file3.txt gets deleted &
+content in ur abcd.txt will be copied into file3.txt
+
+$ cat file3.txt
+welcome to the class
+
+
+Originally,
+if u see before file3.txt ---->it is this is my laptop(before)
+
+but now it is welcome to the class(after)
+
+:::::::::::::::::::::::::
+other commands:
+
+$ date
+6th Aug 2024 (Tuesday)
+
+$ cal
+does not work in gitbash
+
+$ echo "helloworld" 
+helloworld ----->it prints the same thing
+
+$ echo "hi"
+hi ----->it prints the same thing
+
+
+::::::::::::::::::::::::::::::::::::
+
+Done

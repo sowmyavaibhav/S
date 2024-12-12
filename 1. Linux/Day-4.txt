@@ -1,0 +1,595 @@
+OM
+Day-4
+8th Aug 2024 (Thursday)
+
+Linux commands:
+1. Redirect ----> (>) 
+use:
+* used to store o/p of the any cmd to a particular file 
+* if the file already Exit--->copy
+* if the file not exit ---->create & copy
+
+
+
+2. Append   ----> (>>)
+
+3. Pipe     ----> | 
+|(pipe)
+use to give o/p of 1 command as an input to other commands
+
+we have a file ---->1234567
+
+head no's ---->top 10 no's
+tail no's ---->displays bottom 10 no's
+
+
+4. sort     ----> is used to arrange the elements in AO(S to B) or DO(B to S) 10-1
+
+5. uniq     ----> 
+
+6. Copy     ----> cp
+
+7. move     ----> mv
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Lab:
+Linux:
+
+1. Redirect (>)
+use:
+* used to store o/p of the any cmd to a particular file 
+* if the file already Exit--->copy
+* if the file not exit ---->create & copy
+
+$ ls
+numbers virat.txt
+
+$ ls > file1.txt ----->if the file not exit 
+
+add this o/p--->numbers virat.txt
+
+$ cat file1.txt
+numbers 
+file1.txt
+virat.txt
+
+$ ls -l > file2.txt
+
+$ cat file2.txt
+numbers 
+file1.txt
+virat.txt
+file2.txt
+
+:::::::::::::::::::::::::::::::
+
+* if the content is already present
+if we use redirect operator
+it will delete the content
+& create a new content
+
+ls
+
+cat file2.txt
+
+$ head virat.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+head virat.txt > file2.txt ---->wtever the o/p of replaces with file2.txt(overwrides/deletes that content & replaces)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+$ cat > file3.txt
+this is Linux class
+
+c+D
+
+ls
+
+
+
+cat file3.txt
+
+:::::::::::::::::::::::::::::::::
+2. 
+>>---->(Append) two greater than symbol
+o/p of the cmd  store
+
+> if the content file ow deletes & replace
+
+>> if 2 lines A,
+does not deletes these lines,
+just keep on adding the lines
+
+
+cat > file4
+1
+2
+3
+4
+
+ls
+file4
+
+cat file4.txt
+1
+2
+3
+4
+
+ls -l
+f1,2,3,4,numbers,  virat.txt
+
+ls -l >>file4.txt
+
+cat f4.txt
+1
+2
+3
+4
+:
+:
+:----->keep on adding new content not deletinh
+
+ls -l > file4
+
+cat f4.txt
+:
+:
+:
+
+
+::::::::::::::::::::::::::::::::::
+a & R to copy the content
+
+cat file4
+:
+:
+---->does not have file5.txt here
+
+cat f4.txt > file5.txt
+
+$ ls
+:
+f5 is created
+
+$ f5.txt
+same content to f5.txxt
+
+cat f1.txt
+
+cat file5.txt >>f1.txt
+
+$ cat file1.txt
+f1
+numbers
+virat
+:
+:
+:
+
+:::::::::::::::::::::::::::::::::
+>
+>>
+used to o/p of command to file
+
+------------
+3.
+|(pipe)
+use to give o/p of 1 command as an input to other commands
+
+we have a file ---->1234567
+
+head no's ---->top 10 no's
+tail no's ---->displays bottom 10 no's
+
+I want to display no's from b/w 5 to 10
+how will I display?
+
+so we can use of pipe
+
+pass:o/p of 1 cmd to input to another cmd
+
+head no's | tail no's
+1-10          10-1
+
+but I need to display 5 to 10?
+how?
+Ans:
+
+head no's | tail no's -n 5
+display 5 to 10
+5
+6
+7
+8
+9
+10
+
+Git
+$ cat numbers
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+$ head numbers
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+tail numbers
+10
+9
+7
+8
+6
+5
+4
+3
+2
+1
+
+
+now I need 5 to 10, how
+
+$ head numbers | tail -n 5 ---->display only 5no's from bottom
+6
+7
+8
+9
+10
+
+::::::::::::::::::::::::::::::::::
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+only 6 I want to display
+head -n 6 numbers | tail -n 1
+
+6
+
+$ head -n 6 numbers | tail -n 1
+6 ---->displays only 6
+
+$ 
+
+we have no's from ---->1-76
+
+but I need to display  50-55
+
+$ $ head -n 60 numbers | tail -n 5
+56
+57
+58
+59
+60
+
+$ head -n 60 numbers | tail -n 5
+56
+57
+58
+59
+60
+
+Pipe | ---->o/p of cmd to input of the next command
+
+
+:::::::::::::::::::::::::::::::::::::::
+4.
+sort ----> is used to arrange the elements in AO(S to B) or DO(B to S) 10-1
+uniq----> 
+takes/gives uniq no's 
+deletes duplicate no's
+
+both commands must us at a time
+
+sort ---->individual comman
+uniq---->both sort & uniq
+
+$ vi alphabets
+a
+b
+c
+d
+a
+b
+c
+d
+
+:wq!
+
+$ ls 
+alphabets
+:
+:
+
+$ sort alphabets
+a
+a
+b
+b
+c
+c
+d
+d
+(AO)
+
+$ uniq alphabets
+
+
+$ sort alphabets | uniq
+a
+b
+c
+d
+
+AO
+
+$ vi numbers
+1
+3
+4
+5
+6
+1
+2
+3
+4
+5
+6
+
+$ sort numbers 
+1
+1
+2
+2
+3
+3
+4
+4
+5
+5
+6
+6
+
+
+$ sort num | uniq
+1
+:
+6
+(AO)
+
+$ sort -r num | uniq
+6
+5
+4
+3
+2
+1
+(DO)
+
+::::::::::::::::::::::::::::::
+copy----->  another copy of same thing
+
+$ ls
+:
+:
+
+$ mkdir copy
+
+$ ls
+:
+:
+copy
+
+I want to copy f1.txt to copy
+$ cp f1.txt copy
+$ cd copy
+$ ls
+f1.txt
+
+Egs:
+
+cp f1----> f2(does not exit, so it creates new file2 & adds the content from f1 to f2)
+$ 
+
+f2 does not exit creates a file & copy the content
+
+f1 f2 ---->empty
+
+f1(C) f2(C) ----> deletes the exiting content & adds the new content
+
+$ cat f1.txt
+:
+:
+
+$ ls
+
+$ cp f1.txt f10.txt
+$ ls
+:f10.txt --->is creates
+
+cat f10.txt
+:
+:
+
+::::::::::::::::::::::::
+f1 & F10 both r present
+
+cat > f1.txt
+overwride
+
+$ cat f1.txt
+overwrite
+
+$cp f1.txt f10.txt
+$ ls
+
+$ cat f10.txt 
+ow
+(deleting old content & adding new content0)
+
+::::::::::::::::::::::
+Directory ---->ABC ---->log file
+other Directory--->XYZ ---->copy log file
+
+$ mkdir -p abc xyz
+
+$ ls
+abc
+xyz
+:
+:
+
+$ touch abc/logfile
+
+$ ls abc/logfile
+ abc/logfile
+
+$ ls abc
+logfile
+
+::::::::::::::::
+$ cp abc/logfile xyz/
+
+$ ls
+:
+:
+
+$ ls xyz/
+logfile
+
+if ur copying directories
+use -r for dir1 & dir2
+
+-r is recursively(copies each & every folder)
+
+------
+cp f1.txt f2.txt 
+
+R
+W
+E with same permissions level
+
+cp -p f1.txt f2.txt
+-p is permissions
+
+
+cp f1.txt f2.txt
+
+I
+
+$ cp f1 f2
+
+$ cp i f1 f2
+askes for permission---->ow
+
+enter then its going to copy
+
+$ 
+
+::::::::::::::::::::::::::::::::
+MOVE --->(mv)renames 
+         cut & paste files or directories
+
+2 cases
+1. if the file exits in the same directory
+we can also use mv command wr we can rename the content
+
+2. cut & paste 
+
+$ ls
+f1
+f100
+:
+:
+
+$ mv f100 dhoni.txt
+
+$ ls
+:
+:dhoni.txt 
+
+------------
+cut & past
+
+$ mkdir cut
+
+$ mv dhoni.txt cut 
+
+$ ls
+cut
+
+$ cd cut 
+
+$ ls 
+dhoni.txt
+
+$ cd ..
+$ ls
+----> no dhoni here
+
+::::::::::::::::::::::::::::::::::::
+copy:
+
+$ touch file1
+$ mkdir copydir
+$ ls
+copydir/ ---->destination
+file1
+file1.txt ---->source
+
+$ cp file1.txt copydir
+$ ls
+copydir/  
+file1
+file1.txt 
+
+$ cd copydir
+$ ls
+file1.txt
+
+::::::::::::::::::::::::::::::::::::
+
+Done
+
+

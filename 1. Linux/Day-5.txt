@@ -1,0 +1,455 @@
+Om
+Day-5 
+9th Aug 2024 (Friday)
+
+Linux commands:
+1. GREP ----> (Global Regular Expression point)
+y we use grep?
+it is used to search for a specific pattern in Files & Directories
+
+there is a file
+under the file we have some text
+linux
+windows
+
+under this file,
+i need to find particular work/specific name/pattern
+
+it will just search/find for a file
+
+2. 
+3.
+4.
+5.
+
+
+:::::::::::::::::::::::::::::
+Lab:
+Linux
+
+vi --->normal notepad
+vim ---->notepad++
+
+
+:::::::::::::::::::::
+Linux:
+Lab
+
+1. Grep:
+Lets us create a file by name ---->grep.txt
+
+$ vi grep.txt
+
+.linux
+
+windows
+
+macos
+
+andrios
+
+Linux
+
+windows
+
+macos
+
+andrios
+
+Linux
+
+windows
+
+macos
+
+andrios
+
+:wq!
+
+$ cat grep.txt
+Linux
+windows
+macos
+andrios
+:
+:
+
+
+:::::::::::::::::::::::::::::
+$ ls
+grep.txt
+
+so this is my file---->grep.txt,
+now i want to search for a particular patter
+
+$  grep "Linux" grep.txt
+Linux Linux
+
+$ cat grep.txt
+:
+:
+
+$ grep -i "Linux" grep.txt
+:
+:-----> it search in both cap & small cases
+-i ---->case Insensitive
+
+# how many times pattern is repeated(count/times)
+$ grp -in "linux "grep.txt
+:1:linux
+:9:linux
+:
+n---->stands for no.of times/lines
+in which particular line is displays
+
+:::::::::::::::::::::::::::::::::
+# i want to see how many times this file/pattern(like linus) is repeated in this file
+
+$ grep -ic "Linux" grep.txt
+3 ---->3 times repeating
+
+
+here,
+c is how many times the pattern is repeating is count 
+or
+c is no' of times
+
+$ vi grep.txt
+
+add somethings 
+
+like
+
+WAL
+
+$ grep -i "Linux" grep.txt 
+Linux
+:
+:
+:
+
+dont want to search for unnesserry patterns
+only exact match need to find
+
+1.
+$ grp -iw "linux" grep.txt
+Linux
+linux 
+
+note: exact match
+but its ignoring prefix & suffic(WLA)
+
+
+Here,
+w is is for both capital & small
+
+2. 
+$ grep -inw "linux" grep.txt
+1:linux
+9:linux
+
+note:
+here,
+we can use all the 3---->inw,
+
+i ---->case insensitive,
+n ---->no of lines,
+w ----> for exact match
+
+$ grep -incw "linux" grep.txt
+2 ---->it is just counting the no.of elements
+note: should not use
+
+3. 
+# by using exact match(both prefix & sufix)---->w
+grep -iw "linux" grep.txt
+linux
+Linux
+windows linux andr
+
+4.
+$ grep -inw "linux grep.txt" | grep -c "linux" 
+2 
+
+note: 
+file name is not needed for input of the file
+
+:::::::::::::::::::::::::
+or
+1.
+$ grep -iw "linux" grep.txt
+linux
+Linux
+windows linux andr
+
+2.
+$ grep -ic "linux" grep.txt
+5
+
+3.
+$ grep -in "linux" grep.txt
+1:linux
+9:Linux
+17:linuxwindows
+21:windows linux andr
+23:windows linux andr
+
+:::::::::::
+i want to search for a pattern--->"linux"
+but i dont know abt file name--->like grep.txt
+ 
+$ grep -i "linux" *    
+here,
+*----> all means it will search in all the files & directories in ur current/present working directory(pwd)
+:
+:
+note:
+not in ur entire OS,
+its searches in ur cwd only in linux dir.
+* stands for every directories
+:::::::::::::::::::::::::
+wt is diff b/w l & i
+$ grep -i "linux" 
+linux
+Linux
+
+$ grep -l "linux" ---->l is in which ever file /dir name "linux" is exit, will see
+
+copydir
+grep.txt
+ 
+$ grep -lr "linix"
+grep.txt
+
+here r is recursively
+
+:::::::::::::::::::::
+searching multiple patterns with file(grep.txt)
+
+$ grep -ie "linux" -ie "windows" grep.txt
+l
+w
+l
+w
+l
+w
+
+$ grep -ie "linux" -ie "windows" -ie "macos" grep.txt
+:
+:
+macos
+
+:::::::::::::::::::::::::
+38:00
+
+i want to see/display all the files which r ending .txt extention
+
+$ ls
+grep.txt
+:
+
+
+$ ls *.txt ---->* means all
+:
+: ---->displays all file names eding with txt
+
+$ ls f*
+f1.txt 
+f2.txt 
+f3.txt ---->displays starting with "f"
+
+::::::::::::::::::
+go to Aws console,
+EC2,
+ubuntu-server,
+click on connect
+SSh client
+copy ---->Example
+
+go to downloads,
+KP,
+right click on it to open git bash here,
+$ paste example here
+enter
+yes
+
+ubuntu@ip$
+-------------------------------------
+i want to search for a pattern in file2
+i know the starting letter
+but
+
+or
+
+i have a file wth some text,
+
+hello
+hi
+hw
+happy
+
+i want to search for a particular pattern
+
+but pattern must begin/star with "h"
+im not bother with other word
+
+there is a symbol called as 
+^ ----> to specify beginning (cap symbol),
+$ ----> ending ---->is---->exactly opposit 
+
+
+"^h"---->then it will start the word wich r starting with "h"
+
+$ ls
+:
+:
+:
+
+$ cat file1.txt
+:
+:---->this is the content of my file
+
+i want to serach for all the parttern all ---->word "L"
+
+$ grep -i "^h" file1.txt
+$ ---->theres no words with starting h
+$ 
+$ grep -i "^l" file1.txt ---->it is small "L"
+linuxs
+: 
+:
+:----->displays words starting with "L"
+::::::::::::::::::::::::::::::
+i want to start with all the words,
+lin,
+$ grep -i "^lin" file1.txt
+:
+
+$ grep -i "^mac" file1.txt
+:
+
+$ grep -i "^mac" *
+:
+:
+:::::::::::::::::::::::::
+$ symbol---->ending
+display all the words ending with x
+
+"^h" ---->begin/start
+"x$" ---->ending
+
+$ grep -i "s$" file1 ---->which must end with "s"
+windows
+linuxs
+:
+: ---->display all the words ending with s
+
+$ grep -i "os$" file1
+:
+:
+macos
+linusos
+windowsos ---->display all the words ending with os
+
+:::::::::::::::
+Assignment:
+1. just take some name
+i want to show all the names starting with S
+sowmya
+sachin
+satya
+sai
+s
+krupal abc
+pavan
+sun
+
+$ ls
+:
+:
+
+$ cat names
+:
+:
+
+$ grep -i "^s" names
+sowmya
+sachin
+satya
+sai
+s ---->displays names starting with S
+
+$ grep -i "^k" names
+krupal abc ---->displays names starting with K
+
+$ grep -i "n$" names ---->displays all the names which r ending with "n"
+sachin
+pavan
+sun---->displays names ending with "n"
+ 
+-----------------------------------------------
+i want to display name begins with s & ending with n
+$ 
+
+do it
+
+:::::::::::::::::::::
+56:20
+::::::::::::::::::::
+Tee ---->o/p of the command to a particular file 
+> ---->o/p of the command to the file 
+>> ---->
+
+$ ls > abc ---->">" is redirect
+$ ls
+:
+: ---->means copy all the content to abc file
+
+$ ls | tee abcd 
+:
+: copies that o/p to this file
+
+::::::::::::::::::::::::::
+lets us see how create AWS server,
+& login to the account.
+
+
+go to Aws console,
+EC2,
+instances
+
+to create a server,
+Lauch instances,
+Name: ubuntu-server
+select os: ubuntu
+key pair: its a password to login into system
+
+create a new kp or use it from drop down
+
+RSA
+.pem
+
+create kp
+
+Launch Instance
+
+----------------------
+go to EC2,
+ubuntu-server,
+click on connect
+SSh client
+copy ---->Example
+
+go to downloads,
+KP,
+right click on it to open git bash here,
+$ paste example here
+enter
+yes
+
+ubuntu@ip$
+
+
+::::::::::::::::::::::::::::::::::::::::::::::
+
+Done

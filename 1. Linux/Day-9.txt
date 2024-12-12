@@ -1,0 +1,229 @@
+Om
+Day-9
+19th Aug 2024 (Wednesday)
+
+Linux commands:
+1.
+
+
+20-08-2024
+
+wget : which is used to download the files from internet use this commend.
+
+syntax: wget https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+
+wget -0 sachin_name ---> if you want to download some name based on your requriments use -o
+
+syntax : wget -o https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+
+wget -P home/ubantu/wget/abc             ---> (captial p) -p is used to down load the file whaichever directory you want.
+
+syntax: wget -P home/ubuntu/wget/abc https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+
+curl : (Check URL)
+
+-------> which is used to download the file from internet.. same like wget
+
+Syntax : curl https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+
+
+ping:
+---->ping www.google.com
+----> ping -c 4 www.facebook.com            (specifing to 4 respencess)
+
+
+DNS(Domian Name Service) :
+-------> converting name to ip address .
+
+Request-Responce Mechanisam: (request&responce)
+--------------------------> is nothing but sending the request to server get the respose ..
+
+Round Travel Time : is nothing but howmuch time taking request and how much time is taking to give the responce.
+---------------> (round table time is high performance less.. round table time is less performance high.)
+
+
+ctrl+c ---> to used to terminate perminatly delete the process
+
+ctrl+z ---> is used to stop the process and if you want run re-again it will start genarate again.
+
+
+jobs --> jobs shown the list of services .
+example:
+ubuntu@ip-172-31-3-251:~/wget$ jobs
+[1]-  Stopped                 ping www.google.com
+[2]+  Stopped                 ping www.google.com
+
+
+fg 2  ---> it is used to run the procees using jobs id like 2
+
+eaxple :
+ubuntu@ip-172-31-3-251:~/wget$ jobs
+[1]   Stopped                 ping www.google.com
+[2]-  Stopped                 ping www.google.com
+[3]+  Stopped                 ping www.google.com
+
+ubuntu@ip-172-31-3-251:~/wget$ fg 3
+ping www.google.com
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=7 ttl=54 time=1.24 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=8 ttl=54 time=1.30 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=9 ttl=54 time=1.25 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=10 ttl=54 time=1.26 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=11 ttl=54 time=1.27 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=12 ttl=54 time=1.29 ms
+^Z
+[3]+  Stopped                 ping www.google.com
+ubuntu@ip-172-31-3-251:~/wget$ jobs
+[1]   Stopped                 ping www.google.com
+[2]-  Stopped                 ping www.google.com
+[3]+  Stopped                 ping www.google.com
+
+
+
+*********bg (don't try that)***************
+
+
+
+ifconfig:
+ifconfiq is nothing but the details of server like pravite ip adress and public ip adress.
+syntax :
+ifconfig
+
+
+nslookup  :  --> If you have a domain name and you want to know the ip adress.. it shows ip adress and more details about the website.
+
+ubuntu@ip-172-31-3-251:~/wget$ nslookup www.google.com
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   www.google.com
+Address: 142.250.77.36
+Name:   www.google.com
+Address: 2404:6800:4009:82e::2004
+
+hostname:
+ip adreess of same computer ip adress..
+ubuntu@ip-172-31-3-251:~/wget$ hostname
+ip-172-31-3-251
+
+
+net stat:  ----> it will give all the network informations.
+           ---->active networking connecting .. active listing pods..
+
+
+
+-------------------------------------------------Practical----------------------------------------------------------------------------------
+
+downloading:
+-----------
+ubuntu@ip-172-31-3-251:~$ ls
+wget
+ubuntu@ip-172-31-3-251:~$ cd wget/
+ubuntu@ip-172-31-3-251:~/wget$ wget https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+--2024-08-20 18:45:44--  https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+Resolving mrcet.com (mrcet.com)... 148.72.90.41
+Connecting to mrcet.com (mrcet.com)|148.72.90.41|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1597251 (1.5M) [application/pdf]
+Saving to: ‘PYTHON PROGRAMMING NOTES.pdf’
+
+PYTHON PROGRAMMING NOTES.pdf                    100%[=======================================================================================================>]   1.52M   290KB/s    in 5.4s
+
+2024-08-20 18:45:51 (290 KB/s) - ‘PYTHON PROGRAMMING NOTES.pdf’ saved [1597251/1597251]
+
+changeing  the file name based on requriment  using -o
+------------------------------------------------------
+ubuntu@ip-172-31-3-251:~/wget$ wget -o varun_notes https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+ubuntu@ip-172-31-3-251:~/wget$ ls
+'PYTHON PROGRAMMING NOTES.pdf'   index.html   varun_notes
+ubuntu@ip-172-31-3-251:~/wget$ rm index.html
+ubuntu@ip-172-31-3-251:~/wget$ ls
+'PYTHON PROGRAMMING NOTES.pdf'   varun_notes
+
+if you want to download a file in particular folder use this commend (-p)
+--------------------------------------------------------------------------
+ubuntu@ip-172-31-3-251:~/wget$ pwd
+/home/ubuntu/wget
+ubuntu@ip-172-31-3-251:~/wget$ mkdir new
+ubuntu@ip-172-31-3-251:~/wget$ wget -P /home/ubuntu/wget/new/  https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+--2024-08-20 18:57:08--  https://mrcet.com/downloads/digital_notes/CSE/III%20Year/PYTHON%20PROGRAMMING%20NOTES.pdf
+Resolving mrcet.com (mrcet.com)... 148.72.90.41
+Connecting to mrcet.com (mrcet.com)|148.72.90.41|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1597251 (1.5M) [application/pdf]
+Saving to: ‘/home/ubuntu/wget/new/PYTHON PROGRAMMING NOTES.pdf’
+
+PYTHON PROGRAMMING NOTES.pdf                    100%[=======================================================================================================>]   1.52M   473KB/s    in 3.3s
+
+2024-08-20 18:57:12 (473 KB/s) - ‘/home/ubuntu/wget/new/PYTHON PROGRAMMING NOTES.pdf’ saved [1597251/1597251]
+
+ubuntu@ip-172-31-3-251:~/wget$ ls new/
+'PYTHON PROGRAMMING NOTES.pdf'
+
+ping:
+----
+
+ubuntu@ip-172-31-3-251:~/wget$ ping www.google.com
+PING www.google.com (142.250.192.4) 56(84) bytes of data.
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=1 ttl=113 time=1.54 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=2 ttl=113 time=1.56 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=3 ttl=113 time=1.58 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=4 ttl=113 time=1.55 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=5 ttl=113 time=1.67 ms
+64 bytes from bom12s14-in-f4.1e100.net (142.250.192.4): icmp_seq=6 ttl=113 time=1.57 ms
+^C
+--- www.google.com ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5008ms
+rtt min/avg/max/mdev = 1.535/1.577/1.671/0.044 ms
+
+ubuntu@ip-172-31-3-251:~/wget$ ping -c 4 www.google.com
+PING www.google.com (142.250.199.164) 56(84) bytes of data.
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=1 ttl=54 time=1.23 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=2 ttl=54 time=1.25 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=3 ttl=54 time=1.29 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=4 ttl=54 time=1.25 ms
+
+--- www.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 1.227/1.254/1.292/0.023 ms
+
+jobs:
+
+ubuntu@ip-172-31-3-251:~/wget$ jobs
+[1]-  Stopped                 ping www.google.com
+[2]+  Stopped                 ping www.google.com
+ubuntu@ip-172-31-3-251:~/wget$ ping www.google.com
+PING www.google.com (142.250.199.164) 56(84) bytes of data.
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=1 ttl=54 time=1.19 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=2 ttl=54 time=1.29 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=3 ttl=54 time=0.064 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=4 ttl=54 time=1.28 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=5 ttl=54 time=1.29 ms
+64 bytes from bom07s37-in-f4.1e100.net (142.250.199.164): icmp_seq=6 ttl=54 time=1.26 ms
+^Z
+[3]+  Stopped                 ping www.google.com
+ubuntu@ip-172-31-3-251:~/wget$ jobs
+[1]   Stopped                 ping www.google.com
+[2]-  Stopped                 ping www.google.com
+[3]+  Stopped                 ping www.google.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::
+Linux pending topics:
+
+cut awk
+zip & unzip
+links

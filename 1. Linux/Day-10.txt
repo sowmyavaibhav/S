@@ -1,0 +1,193 @@
+Om
+Day-10
+20th Aug 2024 (Tuesday)
+
+Linux commands:
+1. wget : is used to download files from internet
+go to git bash,
+ubuntu$ mkdir wget
+$ ls
+:
+
+$ cd wget
+$ ls
+$ 
+
+Browser---->python notes pdf
+copy link address/URL
+https://r.search.yahoo.com/_ylt=AwrKBU4s9sNmYgQAh2m7HAx.;_ylu=Y29sbwNzZzMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1725328173/RO=10/RU=https%3a%2f%2fwww.stat.berkeley.edu%2f~spector%2fpython.pdf/RK=2/RS=8A.sJBk1mHV44EgPY2kpJSsFZZE-
+
+$ wget paste
+:
+:
+:
+:
+$ ls
+'python notes pdf'
+
+$ wget -O sachin_notes paste url
+:
+:
+:
+:
+here,
+-O----> 
+sachine_notes---->stored with diff name of the file
+
+$ ls
+sachine_notes
+'python notes pdf
+
+----------------------
+another option
+$ pwd
+/home/u/wget
+$ mkdir abc
+$ ls
+abc
+sachine_notes
+'python notes pdf
+
+
+$ wget  -P /home/ubuntu/wget/abc/ paste url
+:
+:
+:
+the same file will be getting downloaded but not with the 
+
+abc$ ls
+'python notes pdf
+
+---------------------------------
+
+2. CURL: check URL
+also used to download files by internet
+
+---------------------------------
+
+3. PING: 
+/wgetabc$  ping www.google.com
+:
+:
+:
+:
+:
+
+control C ---->to stop/terminate response
+
+perment delete process
+
+control+Z not delete
+start + start
+
+$ ping ---->checking connection b/w n/w's
+:
+:
+:
+:
+control+Z
+
+stop 
+
+$ ping -c 4 facebook.com
+:
+:
+:
+:
+
+just give only 4 responses
+
+round travel time is less performance is more
+viceversa
+
+---------------------------------
+
+4. jobs
+
+
+
+all the process r stopped---->jobs
+$ jobs
+ping g.com
+ping f.com
+
+$ fg3--->background to foreground process
+:
+: 
+control+z ---->stop the process
+control c
+
+$ bg 1 
+:
+:
+it will generating
+:
+close it & start again
+note: not to use
+
+---------------------------------
+5. ifconfig
+
+$ ifconfig---->n/w inferace cards, which provides ip add of ur n/w
+
+
+how many network cards r available/details
+
+shows pub ip add/ private ip add
+
+
+---------------------------------
+
+6. nslookup: will provide ip add of particular commands
+
+ubuntu@ip$ nslookup www.google.com
+it converts domanin name & gives IP add
+
+$ ping ip add
+:
+:
+
+
+---------------------------------
+
+7. hostname:
+
+ip add of that computer
+
+$ hostname
+ip-123
+
+
+---------------------------------
+
+8. netstat: network statistics
+gives all information abt network
+all active n/w connections
+all active listening port
+
+
+$ netstat
+:
+:
+:
+:
+
+:::::::::::::::::::::::::::::::::::::
+
+Done
+
+END
+
+
+
+
+
+pending: will upload in utube
+cut & AWK
+zip & unzip
+
+
+
+
+
+

@@ -1,0 +1,594 @@
+Om
+Day-7
+13th Aug 2024 (Tuesday)
+
+Linux commands:
+1. SED: Stream Editor:
+   it will be creating a photo copy of that exact file & it allows u to work on that file.
+
+2.
+3.
+
+:::::::::::::::::::::::::::::
+Linux
+Lab:
+
+lets login to AWS server,
+
+Aws console,
+EC2,
+instances
+
+to create a server,
+Lauch instances,
+Name: ubuntu-server
+select os: ubuntu
+key pair: its a password to login into sytem
+
+create a new kp or use it from drop down
+
+RSA
+.pem
+
+create kp
+
+Launch Instance
+
+----------------------
+go to EC2,
+ubuntu-server,
+click on connect
+SSh client
+copy ---->Example
+
+go to downloads,
+KP,
+right click on it to open git bash here,
+$ paste example here
+enter
+yes
+
+ubuntu@ip$
+
+----------------------------------
+$ ls
+:
+:
+imp.txt
+
+$ cat imp.txt
+xyz
+xyz
+Welcome
+Welcome
+
+#i want to replace xyz with abc
+$ vi imp.txt 
+xyz ---->abc
+xyz---->abc
+Welcome
+
+how can we do it?
+:%s/xyz/abc/gi
+:wq! ---->just save
+
+$ cat imp.txt
+abc
+abc
+Welcome
+welcome
+::::::::::::::::::::::::::::::
+in order to perform or creating ur photo copy we need SED (Stream Line Editor)
+that is exactly similar to Vi
+
+Lab:
+$ cat imp.txt
+abc
+abc
+Welcome
+welcome
+
+i want to replace abc with xyz
+$ sed 's/abc/xyz/gi' imp.txt 
+here,
+---->gi is globally case insensitive
+---->abc old pattern
+---->xyz new pattern
+xyz ---->so it is replacing imp.txt but cat imp.txt is not changed/replaced
+xyz
+Welcome
+welcome
+
+$ cat imp.txt
+abc---->is not replaced
+abc---->is not replaced
+Welcome
+welcome
+
+SED:
+wt sed will do?
+1st it will create a temporary xerox copy of file
+then it will performs all the operations(any changes r not reflected to original file)
+then these changes r not affected to original file.
+
+so here we r performing testing operation to ur file.
+
+$ cat imp.txt
+abc 
+abc 
+Welcome
+welcome
+
+# replace welcome with linux,
+$ sed 's/Welcome/Linux/gi' imp.txt
+abc
+abc
+linux
+linux
+
+#original file ---->imp.txt, 
+it is not effecting ur original file 
+$ cat imp.txt
+abc 
+abc 
+Welcome
+welcome
+
+$ cat imp.txt
+abc 
+abc ---->nd line
+Welcome
+welcome
+
+# replace only 2nd line?
+$ sed '2s/abc/windows/gi' imp.txt
+---->2s is 2nd line
+abc
+windows
+Welcome
+welcome
+
+# wtever the changes we do in (sed 's/Welcome/Linux/gi' imp.txt)
+onto my photo copy all my testing is done on to this xerox copy
+i wanted to apply the changes to  original file.
+
+$ sed -i '2s/abc/windows/gi' imp.txt
+
+Explaination:
+to the same command we need to use -i,
+-i is saying that wtever the thingsur doing
+instead of performing a photocopy,
+just directly apply to my original file(imp.txt)
+
+
+$ cat imp.txt
+abc ---->1st line
+windows ---->2nd line
+Welcome ---->3rd line
+welcome ---->-i effects ur original file
+
+if u see,
+on 2nd line it is abc,
+now it is changed to windows
+
+note:
+if u dont use -i---->it works on ur photo copy/xerox
+if u use -i----> it effects our original file
+
+----------------------------------------
+
+# i want to replace 1st line & 4th line
+$ cat imp.txt
+abc ---->1st line
+windows ---->2nd line
+Welcome ---->3rd line
+welcome ---->4th line
+
+or
+$ ls
+:
+:
+numbers
+:
+:
+
+$ cat numbers
+1
+2
+3
+4
+5
+:
+:
+:
+:
+:
+200
+
+# 1 to 200 numbers
+i want to replace 157th name to my name Sowmya
+
+$ sed -i '157s/157/Sowmya/gi' numbers
+$ cat numbers
+:
+:
+:now 157 is replaced with Sowmya & its effecting ur original file 
+:
+------------------------------------
+
+# i want to replace 190 line till 200 line with windows
+$ sed -i '190,200s/linux/windows/gi' numberss
+:
+:
+from 190 line to 200 line it will be windows
+
+$ cat numbers 
+1
+2
+3
+4
+5
+:
+:
+:
+190<---->windows
+191<---->windows
+:
+:
+200<---->windows
+
+
+it does not possible
+
+or
+26:00
+
+:::::::::::::::::::::::::
+if i use only s,
+$ sed -i 's/linux/windows/gi' numbers
+$ cat numbers
+:
+:
+----->nothing is happening
+linux pattern is does not exit in any of the file
+
+:::::::::::::::::::::::::::::::::::::::::::
+note:
+if u use,
+1. i gi ---->Global case insensitive
+2. sed -i ----> affect ur original file
+
+--------------------------------------
+
+$ cat numbers
+:
+:
+
+1-200 numbers
+
+Q. if i want to print only 150 number line
+from 1 to 200 numbers?
+
+$ head -n 150 number | tail -n 1
+150
+
+means,
+head will give 1 to 150 numbers,
+this is o/p with the help of input to pipe command to tail 
+
+so wt tail will do?
+tail will pick up only 150th line.
+
+$ head -n 150 number | tail -n 1
+150
+
+instead of head & tail,
+we can use SED,
+
+$ sed -n 150p number
+150 
+
+here,
+-n is line number
+:::::::::::::::::::::::::::::
+if u want to print multiple lines,
+using sed in single command
+$ sed -n -e 127p -e 150p number
+127
+150
+
+here,
+-e is to provide or print multiple options here
+
+37:00
+
+::::::::::::::::::::::::::
+for multiple options/numbers to print,
+eg:
+$ sed -n -e 135p -e 67p -e 55p number
+135
+67
+55
+
+eg:
+$ sed -n -e 45p -e 67p -e 89p -e 149p number
+45
+67
+89
+149
+
+so u can print which ever line u want.
+::::::::::::::::::::::::::::::::::::::::::
+print 10,11,12,13,14....20,
+$ sed -n '10p;20p' number
+
+wrong
+sachin will try this task
+::::::::::::::::::::::::::::::::::
+11.
+
+delete particular 10th line
+$ sed '10d' numbers
+1
+2
+:
+:
+:----->its going to delete the 10th line
+:
+:
+200
+
+but its not effecting ur original file
+$ cat number
+1
+2
+:
+:
+:----->now u can see---->10th line
+:
+:
+200
+
+# if u want to delete 200 line,
+$ sed -i "d200" number
+1
+:
+:
+:
+199
+---->200 line is deleted
+
+$ cat number
+1
+2
+:
+:
+:----->now u can see---->10th line
+:
+:
+$ cat number
+1
+2
+:
+:
+:
+:
+:
+200----->now u can see---->200th line
+:::::::::::::::::::::::::::::::::::::::::::
+40:00
+# to delete multiple lines
+$ sed -e '199d' -e '198' number
+1
+:
+:
+197
+200---->so its deleting 198,197 lines
+
+$ cat number
+1
+:
+:
+:
+200----->u can see 198,197 lines
+
+:::::::::::::::::::::::::::::
+# if u want to delete range of numbers like 180 to 197 lines,
+$ sed '180,197d' number
+1
+:
+:
+179
+198
+199 --->deleted 180,181,182...to 197 
+
+$ cat number
+1
+2
+:
+:
+:
+200
+
+::::::::::::::::::::::::::::::::::
+43:15
+
+Diff files of file
+
+File types:
+
+1. Normal/Regular file ----> it begin with "-" hyphen symbol
+2. if its a directory --->it begin with "d" D symbol
+3. short cut/ file/link ---->it begin with "l" L symbol
+or Block files---->"B"
+--------------------
+open git bash,
+
+$ ll
+owner    group   user
+drwx     rwx     rwx
+---------------------------
+
+Normal User: can only perform restricted tasks
+Admin User:  can only perform complete task 
+---------------------------
+diff file permissions
+
+4 Read     ----> R  veiw/see content
+2 Write    ----> w  view/insert/delete text
+1 Execute  ----> x  RWX, u can perform all the operations/execute script.
+--------------------------
+Diff kinds of permissions:
+
+Read   ----> r ---->4
+Write  --->  w ---->2
+Execute ---> x ---->1
+
+Diff kinds od Users:
+
+owner/User    group   other user
+-rwx          rwx     rwx
+--------------------------
+Eg:
+
+       ........>GROUP---->r---->read
+       :                  w---->write         : 
+       :                  x---->no permission
+       :                 
+d rwx rw- r--.....>other->read w---->np x-->np
+:  :
+:  :.............>USER---->r---->read
+:                          w---->write
+:                          x---->execute
+V
+d-----> directory
+- ----> file
+l ----> link
+
+:::::::::::::::::::::::::::::::::::::::::
+login to AWS console,
+EC2,
+
+$ mkdir perm
+$ cd perm
+$ ll
+./  ---->hidden files
+../ ---->hidden files
+
+# lets us create a file
+$ touch file1.txt
+$ ll
+./
+../
+-rw-rw-r-- ---->file1.txt
+
+here,
+   Owner    Group    Others  file1.txt
+-  rw-      rw-      r-- 
+   rwx      rwx      rwx
+   421      421      421
+   ---      ---      ---
+    7        7        7
+
+
+$ chmod 777 file1.txt
+$ ll
+./  ---->hidden files
+../ ---->hidden files
+-rwxrwxrwx file1.txt
+
+# i want to give zero,
+O   G   O
+rwx rwx rwx
+0   0   0------>i want to give zero permissions
+
+$ chmod 000 file1.txt
+-------- 
+
+$ cat file1.txt
+permission denied
+
+$ chmod 700 file1.txt
+$ ll
+./  ---->hidden files
+../ ---->hidden files
+-rwx------ ----> file1.txt
+
+$cat file1.txt
+::::::::::::::::::::::::
+
+$ mkdir temp
+$ ll
+./  ---->hidden files
+../ ---->hidden files
+-rwx------ ----> file1.txt
+drwxrwxrwx ---->temp
+
+$ cd temp
+$ cd ..
+$ chmod 000 temp
+$ cd temp
+permission denied
+
+it is not allowing to get into the folder
+
+$ chmod 421 temp
+
+or
+
+$ chmod 777 temp
+$ ll
+
+$ cd ..
+$ ls
+:
+
+:::::::::::::::::::::::
+4 2 1
+r w x
+
+chmod u = rwx, g =rw, o = r
+          7       6       4
+
+$ chmod u=rwx,g=rw,o=r temp
+$ ll
+:
+:
+rwx rw o ---->temp
+
+:::::::::::::::::::::::::::::::::
+
+UMASK: opposite to CHMOD
+both r used to change file permissions
+
+chmod 777 fil1.txt ----->rwx permission
+
+where as,
+umask 777 file1.txt
+      000 ----->ugo dont have permissions
+                means zero/no permissions
+     
+$ 
+
+Note:
+UMASk: never/must not use Umask commands in server
+only executed by admins  
+
+:::::::::::::::::::::::
+not imp: try to watch in youtube
+
+CUT
+AWK
+Links means---->shortcuts    
+
+
+0. paackage management
+1. process manageement
+2. network ---->kill
+3. cron job ---->automation task
+4. how to trouble shoot,
+   if any issues in server
+:::::::::::::::::::::::::::    
+
+
+Done 

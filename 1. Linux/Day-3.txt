@@ -1,0 +1,561 @@
+Om
+Day-3
+7th Aug 2024 (Wednesday)
+https://www.youtube.com/watch?v=VqXPe4c9x8g
+
+Linux commands:
+1. VI EDITOR ---->press "I", 
+                  type something, 
+                  ESC:wq! ---->to save
+2. copy & paste ----> ESC yy p
+3. delete ----> ESC dd (deletes entire line)
+4. dw ----> deletes 1 word
+5. u ---> to undo the line
+6. ESC dL ----> delete entire/starting to ending content 
+                (capital "L")
+7. 
+1. no. of lines/count of code 
+   or
+   set no to each & every line,
+   ESC:set nu ---->set no.'s to each & every line
+
+2. to undo no.of lines/count?
+   ESC:set nonu
+8. search for a word like heritage 
+   :/heritage
+
+   if u want to go to next position----> click on "n"
+
+9. Find & Replace for a string/word 
+   ESC:%s/india/usa
+   "s" is a string
+
+
+10.
+
+
+
+du ---->disk usage ---->provides info abt files & directories
+du -sh* ---->wt is the storage used by particular files & directories
+du -df ---->it will gives the info abt storage,
+how much is used?
+&
+how much is available? in system/hard disk
+
+df -h ---->it will give the info abt the total size of the hard disk,
+how much is used?
+&
+how much is available?
+
+14.
+free -g
+
+$ free -g 
+
+
+
+
+:::::::::::::::::::::::
+Explanation:
+
+VI EDITOR ---->text editor in ur windows(similar to notepad)
+
+note:
+vi is Normal Editor(note pad)
+whereas, 
+vim is Advance version of VI(note pad++)
+
+# to create a file using VI editor,
+
+step:1: vi filename.txt
+        click on Enter
+
+step:2: window will pop up
+
+step:3: click on "I" means Insertion mode,
+        it allows u to enter/write into txt file
+
+        click on
+step:4: esc --->to come out of insertion mode
+         :
+step:5: q! --->quit/exit/comes out without saving
+
+        :
+       wq! ---->it will saves & exit from the files 
+
+Note:
+1. if any filename.txt is already exited,
+it will make us of it.
+
+2. if the filename.txt does not exit,
+will create a new one
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Lab:
+Linux:
+
+open git bash here,
+open Linux folder,
+
+1. 
+$ ls
+:
+:
+:
+
+$ vi file1.txt
+Welcome to class
+
+India
+
+Karnataka
+
+click on ESC : q!
+
+click on enter
+
+$ ls
+:
+:---->so there is no file by name file1.txt bcz we did not save the file
+
+$ vi file1.txt
+Welcome to class
+
+India
+
+Karnataka
+
+click on ESC : wq!
+
+click on enter
+
+$ ls
+:
+:---->now u'll find file1.txt
+(so its saving the content &
+comes out of VI editor)
+
+$ cat file1.txt
+Welcome to class
+
+India
+
+Karnataka
+
+:::::::::::::::::::::::::
+if the filename.txt is already exited?
+
+$ vi file1.txt
+
+note:
+if the file does not exits,
+it creates a new file,
+
+if the file already exits,
+it make use of exited file.
+
+welcome to india
+
+kaSJBjd
+nnbjsvmlkm
+nkjbbjd
+jbjk
+
+ESC:wq!
+
+$ cat file1.txt
+welcome to india
+
+::::::::::::::::::::::::::
+how do u copy the content in VI editor?
+
+login to AWS console,
+EC2,
+take an ubuntu server,
+
+$ ls
+:
+:---->file1.txt
+
+10:00
+
+$ vi file1.txt
+
+welcome to India
+
+abcdefg
+
+hijklmn
+
+opqrstuvwxyz
+
+insert mode I----> to come inside 
+
+now i want to copy ---->welcome to India----> for 5 times
+
+Q2.
+how to copy & paste inside ur VI Editor,
+either ur mouse to copy/
+method 1: copy & paste it
+
+or else
+
+method 2: ESC yy
+p
+
+or
+
+Explanation:
+click on ESC,
+copy any line like ----> abcdefg
+just click on 2 times----> yy
+or
+then come any where u want 
+&
+click on p---->then its going to paste it for n  no. of times
+
+:::::::::::::::::::::::::::::::::
+
+here,
+yy----> yanking (copying)
+p ---->paste
+
+:::::::::::::::::::::::::::::::::::
+
+Q3.
+if u wanted to delete some line,
+
+ESC
+come to beginning of line
+double click dd ---->its going to delete the line
+
+::::::::::::::::::::::::::::::
+
+Q4. if u wnt to delete only 1 line from this line,
+How?
+
+dw ---->deletes 1 word
+
+::::::::::::::::::::::::::::::
+
+
+Q5. if u want to undo the line,
+how?
+
+u --->to undo the line
+
+::::::::::::::::::::::::::::::
+
+Q6. I want to delete entire content?
+
+ESC dL ---->here,
+            small  ----> "l" 
+            capital----> "L"
+
+::::::::::::::::::::::::::
+
+Q7. how many 
+
+1. no. of lines/count of code is present?
+   ESC:set nu ---->set no.'s to each & every line
+
+2. to undo no.of lines/count?
+   ESC:set nonu
+
+:::::::::::::::::::::::::::::::::::::::::::::
+
+8. I want to search for a word like heritage 
+
+:/heritage
+if u want to go to next position----> click on "n"
+
+
+
+note:
+here,
+/---->back slash
+\---->front slash
+:::::::::::::::::::::::::
+30:00
+
+9. Find & Replace 
+   or
+   search for a particular string/word
+   & Replace 
+
+ESC:%s/india/usa
+
+here, 
+"s" is nothing but a string
+
+india---->search for india,
+usa---->to replace
+
+or
+so i want to change/replacing windows to Linux
+&
+Linux 
+:%s/windows/Linux
+
+so it will replace patterns which r in linux (small "l"),
+not Linux(capital "L")
+
+but if i need to replace with both capital letter & small letter,
+Windows
+Linux
+
+windows
+
+ .linux
+
+macos
+
+Macos
+
+Windows
+
+Linux
+
+Macos
+
+:%s/windows/ANDROID/gi 
+here,
+"g"---->globally  
+"i"---->case insensitive,
+irrespective of there capital or small letters
+
+the moment we enter the command,
+windows will replace with ANDROID
+
+:::::::::::::::::::::::
+Eg:
+Q.
+i want to replace Linux with windows
+how can we do?
+:%s/linux/windows/gi
+
+
+::::::::::::::::::::::
+
+10. 
+
+40:00
+
+#replace only first line,
+:1s/ANDROID/linux/gi
+
+#replace only 10th line,
+:10s/ANDROID/linux/gi
+
+:::::::::::::::
+47:00
+Assignment,
+from starting no:8th line 
+i want to replace the lines till end
+
+
+::::::::::::::::::::::::::::::::
+HEAD: by default it will displays top 10 lines from text file
+
+$ cat > add.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+
+control D ---->to come out
+
+$ ls
+:
+:
+add.txt
+
+#to view/read this file
+$ cat add.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+$ head add.txt ---->head: by default it will displays top 10 lines from text file
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+# to display top 15 lines
+$ head -n 15 add.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15 ---->its going to displays top 15 lines from txt
+
+---------------------------------------
+TAIL: by default it will displays bottom 10 lines from text file
+
+$ tail add.txt
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+$ tail -n 15 add.txt
+15
+14
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1 ---->displays bottom 15 lines
+
+---------------------------------------
+du ---->disk usage
+total memory consumed by ur prticular file or directory
+
+$ ls
+:
+:
+
+$ du add.txt
+1 add.txt
+
+$ du file1.txt
+1 file1.txt
+
+so wt is 1?
+
+$ du -sh add.txt
+1.0k add.txt 
+
+means its consuming 1kb of memory from hard disk
+
+here,
+du- disk usage
+-sh is
+s is summarize
+h is human readable format like kb,mb,gb....
+
+$ du -sh * 
+* is everything/it will give information for all the details/files
+*  star is space
+:
+:
+:
+
+$ du df
+---------------------
+
+
+du ----> disk usage---->it will display disk usage by files & directory
+df ----> disk free ---->it will display total memory used & available
+free -g --->it will show u availble & used RAM.
+
+
+--------------------------------
+14.
+free -g --->it will show u availble & used RAM.
+
+$ free -g 
+:
+:
+
+::::::::::::::::::::::::::::::::
+15.
+wc ---->word count
+it will count no. of lines,words,characters present in ur line
+
+# how many lines r present?
+$ wc -l add.txt
+25 add.txt ---->25 lines r present in add.txt
+
+l is no. of lines
+
+# how many words r present?
+$ wc -w add.txt
+113 add.txt ---->30 words r present in add.txt
+
+w is word
+
+# how many characters/alphapets r present?
+# wc -c add.txt ---->how mauch memory by each & every character
+
+$ wc -m add.txt
+113 add.txt
+
+-m,-c both r same,
+checks the no. of characters r present
+
+
+:::::::::::::::
+key usage:
+
+$ mkdir abc/bca|---->green colour
+if u want to come to beginning of the line
+press control A --->begining of the line
+press control E --->ending of the line
+
+if u want to delete beginning of the line,
+press control Ku
+$ mkdir abc/bca
+first /just come to beginning of the line ---->control k 
+::::::::::::::::::::::::::::::
+
+
+
+-----------------------------------
+DONE
+

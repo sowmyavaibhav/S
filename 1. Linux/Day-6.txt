@@ -1,0 +1,394 @@
+Om
+Day-6
+12th Aug 2024 (Monday)
+
+Linux commands:
+
+1. GREP: is used to find for a particular word/pattern in a particular file or directory
+   
+    grep -icw "linux" file
+
+2. FIND: it is used to search the location/path of a files or directories
+         (here whether the location/path Exit or not?)
+   
+    find . -iname "file1.txt"
+    or 
+    find copydir/ -iname "file1.txt"
+
+2a. i want to list down all the files which r created before 10 days
+
+    find . -type file -mtime +10
+
+2b. i want to list down all the files which r created within 10 day
+
+    find . -type f -mtime -10
+
+2c. i want to list down all the files which have empty content
+
+    find . -type f -empty
+   
+2d. i want to display all non-empty(which have some content in it) files****(IMP)
+
+    find . -type f -not -empty
+
+2e. find . -type f -iname "abc.txt"
+    ./1/2/3/4/abc.txt
+   
+   or
+
+   find . -maxdepth 5 -type f -iname "abc.txt"
+    ./1/2/3/4/abc.txt
+
+Maxdepth: It will helps us to restrict the search in sub directory.
+
+2f. 
+
+3. LOCATE: used to search for file/dir but it'll search in the Entire system & it gives u a path where that file is located.
+ 
+$ locate file1.txt
+
+4. UNAME: unix name
+   gives all the system information
+
+$ uname
+Linux
+
+$ uname -a
+Linux time date ip add etc.,---->it displays all the system information like OS
+
+$ uname -o ---->here "o" is OS
+GNU/Linux
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Linux
+Lab:
+Q1a. grep: is used to find for a particular word/pattern in a particular file or directory
+
+How to use a file command?
+
+
+grep -icw "linux" file 
+here,
+"i" is case sensitive,
+"cw" is diff options,
+"linux" is wt is the pattern name
+file is filename
+
+::::::::::::::::::::::::::::::::::::
+
+Q1b. Find: it is used to search the location/path of a files or directories
+(here whether the location Exit or not?)
+
+How to use a file command?
+
+find . -iname "file1.txt"
+
+here,
+ .(dot) ---->it'll search only in ur pwd
+"i" is case sensitive,
+"file1.txt" is file name with double quotes
+
+find copy dir/abc -iname "file1.txt"
+
+instead of . symbol,
+we can use path as ---->copy dir/abc 
+
+open git bash,
+$ ls
+:
+:
+
+$ pwd
+---->Linux is my pwd
+
+$ find . -iname "file1.txt"
+
+./copydir/file1.txt
+./file1.txt
+
+instead of finding .,
+$ ls copydir
+ABC file1.txt
+
+$ clear
+
+$ find copydir/ -iname "file1.txt"
+copydir/file1.txt
+
+::::::::::::::::::::::::::::::::::
+
+Q2. i want to list down all the files which r created before 10 days
+
+like 1 .....10 days
+
+Aug  Aug  Aug  Aug  Aug  Aug  Aug  Aug  Aug  Aug  Aug  Aug ---->now the date is 12th Aug
+1st  2nd  3rd  4th  5th  6th  7th  8th  9th  10th 11th 12th
+
+but i need before 10 days
+
+-mtime +10 means file creation time is before 10 days
+
+find . -type file -mtime +10
+
+go to Git bash,
+$ find . -type f -mtime +10
+$ ---->so theres no files before 10 days of time
+$ ll
+:
+:
+---->if u see here,
+before 10 days no files created
+
+::::::::::::::::::::::::::::::::::::
+
+Q3. i want to list down all the files which r created within 10 day
+
+ find . -type f -mtime -10
+
+ go to Git bash,
+$ find . -type f -mtime -10
+:
+:
+:---->files created within the 10days of time
+
+$ find . -type d -mtime +2 ---->b4 10 days
+$ find . -type d -mtime +1 ---->b4 10 days
+$ find . -type d -mtime -3 ---->within 3 days
+:
+:
+
+::::::::::::::::::::::::::::::::::::
+
+Q4. i want to list down all the files which have empty content
+
+find . -type f -empty
+
+$ find . -type f -empty
+:
+:
+: ---->all the files which r displaying empty
+
+::::::::::::::::::::::::::::::::::::
+
+Q5. i want to display all non-empty(which have some content in it) files
+
+  find . -type f -not -empty
+
+$ find . -type f -not -empty
+:
+:
+: ---->all the files which r displaying Non-empty
+:
+:
+
+::::::::::::::::::::::::::::::::::::
+Q6. 
+i have a directory 1,
+under 1st directory i have 2nd directory,
+under 2nd directory i have 3rd directory,
+under 3rd directory i have 4th directory,
+under 4th directory i have 5thnd directory,
+:
+:
+
+$ ls
+:
+:
+
+$ tree
+
+$ ls -R ---->shows 
+:
+:
+:
+
+find . -type f -iname "abc.txt"
+
+go to gitbash,
+$ find . -type f -iname "abc.txt"
+./1/2/3/4/abc.txt
+
+or
+
+$ find . -maxdepth 2 -type f -iname "abc.txt"
+:----> no files 
+bcz its searching till 2nd directory
+
+$ find . -maxdepth 3 -type f -iname "abc.txt"
+
+$ find . -maxdepth 4 -type f -iname "abc.txt"
+
+$ find . -maxdepth 5 -type f -iname "abc.txt"
+./1/2/3/4/abc.txt
+ 
+Maxdepth: It will helps us to restrict the search in sub directory.
+::::::::::::::::::::::::::::::::::::
+
+Assignment: 
+to do
+i want to,
+
+Q1. list down all the files owned by specific user(sowmya)
+Ans:
+
+Q2. list downall the files/dir names ending with .txt
+Ans:
+
+Q3a. list down all the files which r empty
+find . -type f -empty ---->it will identify all the empty dir in pwd
+Ans:
+$ find . -type f -empty
+:
+:
+:
+
+Q3b. list down all the files which r empty and delete them
+Ans:
+
+$ find . -type f -empty 
+:
+:
+:
+
+$ touch file12344
+
+$ rm file12344
+
+but we need to combine both commands,
+
+$ find . -type f -empty | rm -r
+error
+
+$ find . -type f -empty | xargs rm -r
+
+here,
+xargs  ---->x arguments
+means instead of provideing all of ur o/p commands 
+in a single go
+it will ping 1 file & do rm
+it will ping 2 file & do rm
+it will ping 3 file & do rm
+it will ping 4 file & do rm
+it will ping 5 file & do rm
+
+or
+it passes o/p of previous command as input command 1 by q to next command
+
+$ find . -type f -empty | xargs rm -r
+$ find . -type f -empty
+----> no empty  files, as we have already deleted
+
+
+---------------------
+for deleting directories,
+$ ls
+:
+:
+
+$ mkdir copydir
+
+$ find . -type d -empty
+./1/2/3/4
+./a
+./copydir/ABC/BCA
+
+$ find . -type d -empty | xargs rm -r
+
+$ find . -type d -empty
+
+4Q. List down all the files which r greater than 1 MB or 1KB
+
+:::::::::::::::::::::::::::::::::::
+50:00
+
+3. LOCATE: used to search for file/dir but it'll search in the Entire system & it gives u a path where that file is located.
+ 
+$ locate file1.txt
+
+$ ls
+
+login to AWS console,
+EC2,
+
+ubuntu@ip$
+
+$ ls
+:
+:
+
+$ locate file1
+/home/ubuntu/file1
+
+$ locate movies
+/ABC/sowmya  movies music
+/home/ubuntu/movies
+:
+
+$ locate *.txt
+$ locate file2.txt
+/home/ubuntu/file2.txt
+
+::::::::::::::::::::::::::
+4. UNAME: unix name
+   gives all the system information
+
+$ uname
+Linux
+
+$ uname -a
+Linux time date ip add etc.,---->it displays all the system information like OS
+
+$ uname -o ---->here "o" is OS
+GNU/Linux
+
+::::::::::::::::::::::::
+Aws console,
+EC2,
+instances
+
+to create a server,
+Lauch instances,
+Name: ubuntu-server
+select os: ubuntu
+key pair: its a password to login into sytem
+
+create a new kp or use it from drop down
+
+RSA
+.pem
+
+create kp
+
+Launch Instance
+
+----------------------
+go to EC2,
+ubuntu-server,
+click on connect
+SSh client
+copy ---->Example
+
+go to downloads,
+KP,
+right click on it to open git bash here,
+$ paste example here
+enter
+yes
+
+ubuntu@ip$
+
+$ ls
+$ mkdir
+abc
+$ ls
+abc
+
+server/computer: another server which is created somewhere
+
+$ exit
+logout
+
+
+::::::::::::::::::::::::
+Done
+

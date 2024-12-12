@@ -1,0 +1,336 @@
+Om
+Day-8
+14th Aug 2024 (Wednesday)
+
+Linux commands:
+
+1. sudo su
+2. useradd
+   id username
+   passwd username
+
+3. cat /etc/passwd
+
+
+:::::::::::::::::::::::::::
+User Management:
+
+
+Linux: Multi user OS
+Windows: Single user OS
+
+How many user?
+depends on u 
+
+1. sudo/super/root user:
+* Admin in windows
+* unlimited powers/ access
+* whenever u create a server like any of the user EC2 AWS/MS Azure/GCP,
+it is created Automatically by ur OS
+
+sudo gets create
+
+2. Normal user: 
+we r the normal user/we r going to create it
+
+to create a Normal user:
+1. switch to root ---->normal
+   sudo su
+2. useradd ---->to create a normal user
+   a.# useradd balu ---->user name by balu is created
+
+     To confirm user created or not?
+     or
+     b. UID ia Assigned
+     
+     c. GID is Assigned
+
+   2.# id balu ----> if the user exit,
+                     it gives the information
+               ----> if the user does not exit,
+                     it will says user does not found.
+   3.# now the user is created,
+       i need to set the password 
+     # passwd balu
+       New password: 123
+       Retype new password: 123
+     #
+
+:::::::::::::::::::::::::::::::::::
+Linux
+
+Lab:
+go to AWS Console,
+EC2,
+Ubuntu,
+connect,
+
+copy SSH
+
+go to git bash here,
+$ paste SSH
+$ enter
+enter
+yes
+
+
+ubuntu@ip$ sudo su <---->switching normal user to root user
+root@ip:/home/ubuntu#
+
+# whoami
+root
+
+
+her,
+sudo ---->is a command ---->super user
+su stands for switch user
+
+
+root@ip:/home/ubuntu# sudo su ubuntu
+ubuntu$ sudo su
+root@p:/home/ubuntu#
+
+# useradd balu ---->user name by balu is created
+
+#just to confirm that user---->balu is created or not?
+# id balu 
+uid:1010(balu) gid=1011(balu) groups=1010(balu)
+
+          ----> if the user exit,
+                it gives the information
+          ----> if the user does not exit,
+                it will says user does not found.
+
+# now the user is created,
+i need to set the password 
+# passwd balu
+New password: 123
+Retype new password: 123
+#
+
+::::::::::::::::::::::::::
+using another user,
+# useradd divya ---->user name by divya is created
+
+*just to confirm that user---->divya is created or not?
+# id divya 
+uid:1010(divya) gid=1012(divya) groups=1010(divya)
+
+* now the user is created,
+i need to set the password 
+# passwd divya
+New password: 1234
+Retype new password: 1234
+#
+
+:::::::::::::::::::::::::::::
+Details of User file
+or
+whenever user created,
+these users(like divya/balu) r stored at this file(/etc/password)
+# cat /etc/password
+:
+:
+:
+dog:x:1009:1001::/home/dog:/bin/bash
+balu:x:1010:1011::/home/balu:/bin/sh
+divya:x:1011:1012::/home/divya:/bin/sh
+
+# 
+:::::::::::::::::::::::::::::::::
+Shell
+21:20
+
+inside ur OS<----> u have a Shell
+
+user enters the input
+
+shell types:
+1. bash
+2. sh
+3. ksh
+4. chsh ---->change shell
+
+git bash,
+# chsh bash
+bash does not exit
+
+# chsh ksh
+ksh does not exit
+
+note: not required
+:::::::::::::::::::
+git bash,
+
+root@ip:/home/ubuntu# su balu
+$ 
+Press control + D ---->to come out
+
+# su divya
+$
+Press control + D ---->to come out
+
+# cat /etc/password
+:
+:
+:
+dog:x:1009:1001::/home/dog:/bin/bash
+balu:x:1010:1011::/home/balu:/bin/sh ---->a default shell
+divya:x:1011:1012::/home/divya:/bin/sh ---->a default shell
+
+here,
+/bin/sh ---->whenever a user is created,
+a default shell i.e., /bin/sh is created
+
+so we need to change sh to bash
+(/bin/bash to /bin/sh)
+
+# sudo chsh -s /bin/bash divya
+#
+  execute command/enter
+here,
+chsh is change shell
+
+# cat /etc/password
+:
+:
+:
+dog:x:1009:1001::/home/balu:/bin/bash
+balu:x:1010:1011::/home/balu:/bin/sh 
+divya:x:1011:1012::/home/divya:/bin/bash ---->so earlier its sh, but  now its bash
+
+30:21
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+19-08-2024
+
+
+
+Process management:
+
+-->ps        -->list out current running  process
+
+-->ps  -aux (ps -ef) --> list out all the process 
+
+--> Top      --> list out all the procees show the more information
+
+--> Htop    -->  to and htop is same but htop desply coloueful data.
+
+--> PID --> process id used manageing the CPU..
+
+
+-->Avg cpu utilization is more wheather my application perforamance  is good or bad.?
+
+ans)---> perforance is less
+
+
+---------------
+
+apt --> ubantu
+yum --> centos/red
+
+
+1)Install appache2 (web apllication)
+
+2)check application running or not
+
+3)stop the application
+
+fallow below steps:
+
+sudo apt update
+sudo apt upgrade
+
+-->sudp apt install apache2
+
+-->sudo service apache2 status           --syntax(sudo service application name keyword)
+
+--> sudo service apache2 stop
+
+--> sudo service apache2 start
+
+--> sudo service apache2 restart
+
+--> sudo service apache2 reload
+
+--> ps -ef | grep "apache2"                --> checking the application
+
+
+
+greaceful method:
+
+sudo service app  start/stop/restart
+
+
+forcefully method:
+
+kill -9 id(14843)        -->id(process id)
+
+--> uptime   --> used to show the how many hours it is running..
+
+
+Networking  Command;
+SSH (secure shell)
+--> ssh is a commend used to connect with server..
+
+-->ssh starnds for connecting the local system to server
+
+SCP(secure copy)
+scp as like cp command used to copy the files and directories..
+
+--> server to local system
+--> local system to server..
+--> Between the 2 servers.
+
+cp and scp both woks same
+
+(Rsync) (same as like scp):
+
+Rsync is used to copy the data to one server to another server.. while transfering the data if any network issue is happen it will start 
+where it is stoped.
+if it is SCP it will start froom the beginning..
+
+
+10gb file
+
+
+if any network issue is there it networks ia back procees is start from where is it was exicted the last tme..
