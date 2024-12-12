@@ -1,0 +1,95 @@
+om
+
+Terraform
+Day-1
+https://www.youtube.com/watch?v=VMbt6B2MdAw&list=PL0CBBfzkVgQeLYPoaIKIc1D8WKocUChnA&index=1
+
+Infrastructure - laptop might be a infrastructure. 
+Simple it's a hardware, software, n/w, PPL, process all put together is infra.
+
+Is nothing but resource required to perform ur day to day activities. 
+
+Resource - Item, asset 
+
+Q. How to create infra? 
+Ans: 
+1st way:
+By using AWS console 
+
+2nd way:
+Imperative way/method:
+Like by writing with programming language like python, shell scripting 
+
+Create infra ----> Step by step manner/ approach to create infrastructure by using programming language 
+
+Problems associated with imperative method:
+1. Create lot of documents 
+2. It's not a scalable approach 
+   Scalable means Scale-In & Scale-Out 
+                  * Increasing the resources & Decreasing the resources.
+3. No History/version of ur infra is saved
+4. Not a Cloud agnostic solutions
+   Means- same file/scripts can be used for different cloud services.(Min changes)
+
+
+These 4 problems r Mutable infra 
+
+Mutable means not changeable 
+Or
+Mutable infra- Infrastructure where u not able to track history (no history is saved)
+Same infra u can not be able to modify again & again
+
+3rd way:
+Declarative way:
+We just need to tell wt we want 
+&
+How to do it ....
+will be taken care by automation 
+
+1. No need to create documents 
+2. Scalable ----> provide no. Of instances 
+3. History can be tracked, 
+   modify again & again. 
+4. Immutable infra
+5. Cloud agnostic solutions
+   Means- same file/scripts can be used for different cloud services.(Min changes)
+
+In Declarative way,
+We can use Different tools to create infra like
+
+1. Terraform 
+2. Pulomi
+3. Cloud formation by using cloud ----> works only for AWS cloud,
+   In azure- arm templates
+
+Terraform:
+          * Is a infrastructure automation tool,
+            which helps us to create a new infrastructure, 
+            Modify infrastructure 
+            & 
+            all the changes can be tracked.
+
+            * Tf works on the concept of IAC-Infrastructure As A Tool.
+
+IAC means- tells the file
+           Wtever infrastructure we need to create 
+           by using HCL - harshi corp language 
+           will give it to tf,
+           Then tf will create wtever infrastructure need to create & automates.
+
+Interview tools:
+1. Kubernetes 
+2. AWS
+3. Terraform 
+4. Prometheus & grafana 
+5. CI CD - Jenkins
+6. Docker 
+7. Ansible 
+8. Git GitHub 
+9. Linux 
+10. Sonarqube
+11. Trivy
+12. Etc
+
+---------
+Done

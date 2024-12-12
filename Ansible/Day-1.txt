@@ -1,0 +1,367 @@
+om
+
+Ansible
+Day-1
+https://www.youtube.com/watch?v=MXRToWjIV9g&t=5s
+
+Topics:
+1. 
+
+Instead of creating Infra for hosting/developing ur application manually
+we have automated this process(infra creation using a concept IAC or Terraform)
+
+to perform some activity known as Configuration Activity on to these machines 
+if a machine is given,
+u need to make sure 
+*  whether particular package / software is installed or uninstalled
+* whether the service is started or stopped.
+* a particular user has a particular access
+* whether this particular user is exited in this server or not?
+* whether this particular user has a specific access.
+* particular file/folder is available?
+* automatic backups to the OS is available?
+
+so all these activities combinedly called it as Configuration Activity.
+
+or
+Configuration Activity: Making sure some activity available or not like installing/files/folders/backup etc.,
+
+Configuration: ur going to do some activity inside this machine.
+
+Instead of doing manually,
+we can perform automatically by the tool called as Ansible.
+
+(terraform lo Multiple infra/EC2 created chesaka,
+Configuration management tools tho connect iyi,
+task perform chestam automatically)
+
+Ansible: is a Configuration Management tool.
+
+* day to day activities we can perform like installing tools ---->zoom, git installation, MS, chrome etc.,
+which will perform/configure these activities on behalf of us.
+
+Provisioners = = Ansible
+
+Tf provisioners r same as equal to Ansible.
+
+::::::::::::::::::::::::::::::::
+
+Terraform Architechture:
+in a machine,
+once terraform is installed,
+will write/create a file in HCL language,
+in this file we will mention a desire state
+(wtever the infra i wanted to create,
+that info im specifying in desire state.)
+1. desire state
+2. Provider ---->to which provider i want to connect(provider details)
+
+once the file is ready.
+will used to execute some commands like Init,Plan,Apply,Destroy
+
+once its done,
+tf itself will connect to the AWS EC2 server,
+it'll create the infra
+&
+creates a statefile.
+
+:::::::::::::::::::::::::::
+
+Ansible Architechture:
+
+in one Machine,
+first we will install Ansible to it.
+this machine we call it as Ansible controller.
+
+once its installed Ansible,
+we r going to write/create a file in YAML/Yet another marker-up language
+
+Q. wt it specifies?????
+Ans: wt r the machines which my ansible need to connect
+2. & wt is my desire state
+here desire state is wt is the packages u want to install?
+like  
+* to install Appache web server into 100 machines
+* to install Hdpd 100 details
+& at the same time will gove/provide the desire state.
+
+once this is done,
+will execute some ansible commands here,
+once execution is done,
+then ansible will try to connect to each & every machine 
+
+by using SSH 
+(if it is Linux machines),
+
+by using winrm 
+(if it is windows machines). 
+
+Note:****
+whenever ur installing Ansible/Ansible controller,
+the OS must be Linux only.
+
+then wt happens? next?
+1. 1st it will connects to this machines,
+2. it will gather/collect/read the facts.
+
+gather facts ---->existing information
+
+(here facts means ---->existing machines configuration/wtever the things avaliable in this machines {git available or not? wtever the existing configuration available here in the machine,
+it will going to READ})
+
+3. Gather Facts/ Comapares 
+
+once its done/reads,
+it will Compare ur gather facts with ur desired state(wtever the thing u want in ur file)in ur machines
+
+if there r no changes,
+comapre GF = Desire state
+       git = git ---->if git installed in both state
+      * no change
+
+if need to install,
+it will installs & node state/update node state
+
+here update is to install new state.
+
+these servers r called Node state
+like Node1, Node2, Node3....
+-----------------------------
+Telugu Explaination:
+
+oka server lo ansible install chesi,
+dantlo oka file create chesi,
+oka desire state rasi,
+ansible commands run chesi,
+adi EC2 machines ki connect avutundi,
+by using SSH or Winrm,
+once its connected,
+it connects through Gather Facts (GF),
+GF ----->READS the existing machine configuration
+or details available in the machine
+
+once this activity is done,
+it will comapare this existing info with our desire state.
+* if there is no changes, then it just executes.
+* if there is a changes, it will go install some package into this machines,
+then it will change/update the Node state.
+its going to installs.
+
+Advantage of Ansible:
+* PUSH based mechanisms
+* no agent /Agent Less
+* Ansible controller will connect to ur machine
+* easy set-up
+* no programming language.
+------------------------- 
+Compare :
+
+Ansible, Chef, Puppet
+
+
+1.Chef, Puppet
+
+client/Agent           chef/puppet
+   (EC2)              (controller)
+
+client/Agent           
+   (EC2)
+
+chef/puppet: It works on the principal of PULL Based Machanism,
+
+PULL Based Machanism: ur agent,which ever in ur EC2 instance,
+will(client/Agent) connect to ur chef controller machine,
+& 
+it will take the software/wtever it will be.
+so it is pulling from the controller machine.
+
+by using the language python/Ruby
+
+its a complicated set.
+
+Problems with Chef/Puppet:
+* Agent based tools
+* PULL Based
+* Python/Ruby programming language.
+* complicated set-up
+
+Advantage of Ansible:
+* PUSH based mechanisms
+* no agent /Agent Less
+* Ansible controller will connect to ur machine
+* easy to set-up
+* no programming language./no need domain specific language.
+-------------------------------
+Similar to Terraform ----->Cloud Formation,
+Plulomi
+
+Q. Y Ansible, we have terraform right?
+
+---------------------------------
+
+Lab:
+Go to AWS Console,
+EC2,
+Launch Instance,
+Ansible_server,
+Ubuntu,
+t2.micro
+K.P
+click on Launch Instance
+
+copy Public IP,
+
+go to Git bash,
+# cd X:
+# ls
+:
+:
+:
+
+# cd AWS/
+# ssh -i kp-name.pem ubuntu@Public IP
+:
+:
+yes
+:
+:
+
+ubuntu@ip $
+
+$ sudo su -
+
+# 
+--------------------------------
+Google---->Ansible Installation on Ubuntu
+
+https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html
+
+Installing Ansible on Ubuntu
+
+# ---->copy commands
+
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible 
+
+--------------------------
+go to Ansible server,
+$ sudo su -
+
+# sudo apt update
+:
+:
+:
+
+# sudo apt install software-properties-common
+:
+:
+:
+
+# sudo add-apt-repository --yes --update ppa:ansible/ansible
+:
+:
+:
+
+# sudo apt install ansible
+:
+:
+:
+
+------------------------
+# ansible --version
+ansible [core 2.17.6]
+:
+:
+:
+
+----------------------
+Q. Wt is Package management for Ubuntu?
+Ans: APT
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::
+Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

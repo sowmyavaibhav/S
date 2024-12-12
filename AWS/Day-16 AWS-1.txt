@@ -1,0 +1,127 @@
+Om
+
+Day-16
+3rd Sep 2024 (Tuesday)
+https://www.youtube.com/watch?v=nDGtBu5NSlM&t=1s
+
+AWS:
+
+1. Server: is nothing but another/a computer through which ur going provide the service.
+           or
+           is nothing but a computer that provides info to other computers called clients through a network.
+
+ Host(installing)   Clients
+                   
+                    Clients
+
+                    Clients
+
+
+    Client<------------------->Server
+    (Request/response Architecture)
+
+2. 2 Types of Servers(Cloud):
+  
+   1. ON-PREM Server
+   2. Cloud Service Server
+
+  1. ON-PREM Server------>ABC company(banking app/phone pay)
+
+if this server is created, 
+                  used,
+                  managed 
+                  by a company/org itself is ON-PREM Servers.
+
+  2. Cloud Service Server
+
+     we r going to 
+     create the servers,
+     use the servers,
+     but not going to manage by us is Cloud Service server.
+
+3. 2 Types of Cloud Servers:
+   1. Public Cloud
+   2. Private Cloud
+
+      1. Public Cloud:
+         any one can come 
+         &
+         create the server
+
+         Eg: AWS, Azure, GCP
+
+      2. Private Cloud:
+         it is restricted/specified/Authorized companies will create the servers
+
+         Eg: Alibaba cloud, IBM, OpenStack
+             (only specified by org)
+
+
+4. Regions: Geographical Area/Physical location/AWS DC
+         or 
+         a specific area where AWS has its Data Centers/services multiple locations through out the Globe.
+
+5. Availability Zones: its a collection of /Multiple Data centers.
+   or
+   Areas inside ur Region.
+
+:::::::::::::::::::::::::::::::::::
+Google---->AWS Global Infrastructure
+34 launched Regions
+each with multiple Availability Zones
+
+108 Availability Zones
+600+ CloudFront POPs
+and 13 Regional edge caches
+:::::::::::::::::::::::::::::::::::
+
+6. DC: Physical WRACKs
+    * min 2 DC in each AZ.
+
+7. High Availability: 24/7 need to provide service
+
+8. Fault Tolerance: if there r any Natural Disasters,
+                    just to take backup of this data.
+
+9. WRACK: in each wrack we have Hypervisor
+
+10. Hypervisor: Machine devices,
+               which helps us to create the server.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Region---->Availability Zone(AZ)---->DC---->WRACK---->Hypervisor(machine/nw device/individual rooms)
+
+inside ur Hypervisor, u'll create EC2 servers
+
+Note:
+Inside Mumbai Region
+Inside AZ
+Inside DC
+Inside Wrack
+Inside Hypervisor
+Inside EC2 machine will create a server.
+
+:::::::::::::::::::::::::::::::::
+Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

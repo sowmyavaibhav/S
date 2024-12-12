@@ -1,0 +1,377 @@
+Om
+Day-1 
+5th Aug 2024 (Monday)
+https://www.youtube.com/watch?v=MmR8betFnzI
+
+Linux commands:
+1. MKDIR ----> make Directory, 
+               it is used to create folder   
+               or directories in Windows
+
+   control + shift + N for creating a folder in windows
+
+2. clear 
+   or
+   control + L ----> to clear
+
+3. RMDIR ---->REMOVES/DELETES THE FOLDERS /DIRECTORIES 
+
+4. TOUCH ---->used to create files  
+
+5. rm filename ----> to delete both  files & directories
+
+6. PWD ---->present working directory
+   where r u in ur current/position directory/folder
+
+7. ls---->list / show all files & directories
+
+   wt r the things r available 
+
+8. cd----> change directory
+
+9. ls -l ---->l is long listing
+
+10. cd .. ---->come back to the previous folder
+
+
+::::::::::::::::::::::::::::::::
+Lab:
+Linux:
+
+go to Desktop,
+right click on it,
+new,
+to create a folder---->name it as Linux
+
+or
+
+control Shift + Enter to create a folder
+(which is short cut to creating the folders)
+
+Linux
+right click on it to show more,
+Open Git Bash here,
+
+$ 
+
+go to Linux folder,
+Right click on it to create a folder by name ---->ABC
+
+note:
+in windows OS, 
+we call it as a Folder,
+but where as 
+in Linus OS, 
+we call it as Directory.
+
+::::::::::::::::::::::::::::::::::::
+Task:1
+
+1) To CREATE A DIRECTORY/FOLDER
+
+1. MKDIR ----> to make Directory, 
+               it is used to create folder   
+               or directories in Linux
+$ mkdir  ---->make directory
+
+go to Git Bash here,
+
+$ mkdir Sowmya
+
+$ mkdir A
+
+$ mkdir b c d r t ---->for creating Multiple directories
+
+if u go & see in windows,
+backend its created a folders---->Sowmya, A, b, c, r, t
+
+:::::::::::::::::::::::::::::::::::::::
+Task:2
+
+2) TO CLEAR/DELETE THE SCREEN
+
+$ clear --->
+to clear the screen/
+deletes all the commands/previous screen
+
+or 
+control L ---->to clear the screen
+
+:::::::::::::::::::::::::::::
+Task:3 
+
+3) TO REMOVE/DELETE THE FOLDERS/DIRECTORIES
+
+RMDIR ---->REMOVES/DELETES FOLDERS /DIRECTORIES 
+
+go to Gitbash here,
+$ 
+
+$ rmdir A ---->its going to delete the folder in Linuxd 
+
+$ rmdir Sowmya
+
+# to delete Multiple Directories/Folders
+$ rmdir b c d
+
+$
+:::::::::::::::::::::::::::::::::::::
+Task:4
+
+4) TO CREATE A TEXT FILES IN LINUS OS
+
+TOUCH --->which is used to create the files
+
+go to Gitbash here,
+$ touch sowmya
+
+$ touch File1
+
+# to create Multiple files
+$ touch File2 File3 File4
+
+$ touch abc
+
+:::::::::::::::::::::::::
+Task:5
+
+5) to delete the file
+
+rm  ---->to remove/Delete file
+
+$ rm sowmya
+$ rm File1
+$ rm File2
+$ rm File3 File4 ---->for Multiple files to delete
+
+:::::::::::::::::::::
+Task:6
+
+6) PWD ---->PRESENT WORKING DIRECTORY
+
+Linux
+inside r folder,
+create a folder --->ac
+in ac folder create another folder--->cvb
+
+or
+Linux
+r
+ac
+cvb
+
+
+wr r u currently/position---->
+
+pwd---->Present working Directory
+
+
+pwd---->wt is the path that ur now?
+$ pwd
+/c/Users/sowmy/Desktop/Linux
+
+:::::::::::::::::::::::::::
+Task:7
+
+4) 
+ls --->List / Show(wt r the things Available at my position/documents)
+
+
+$ ls
+A/  r/  t/
+
+:::::::::::::::::::::::::::
+
+Task:8
+
+8) cd --->Change Directory,
+          Moving forword or Moving Backward
+
+$ cd r
+
+$ pwd
+/c/Users/sowmy/Desktop/Linux/r
+
+$ ls
+ac/
+
+$ cd ac
+
+$ pwd
+/c/Users/sowmy/Desktop/Linux/r/ac
+
+$ ls
+cvb
+
+::::::::::::::::::::::::::::
+
+Lab:2
+
+create a folder by name---->Linux2
+$ mkdir abc bca 
+$ ls
+abc 
+bca
+
+$ ls -l ---->long listing
+        ---->flags
+
+$ cd abc
+$ pwd
+
+$ mkdir sa
+
+$ ls
+
+$ touch File1
+
+$ ls
+File1 sa/
+
+Control + L
+
+$ cd sa
+$ pwd
+$ mkdir mbads
+$ pwd
+
+$ cd .. ---->to come back to previous folder/directory
+or
+it will come one step backward
+
+or
+
+# to confirm
+$ pwd
+
+$ cd ..
+
+history
+
+
+:::::::::::::::::::::::::::::::
+Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::
+History:
+
+Linux-1
+
+:::::::::::::::::::::::::::::::::::::::::
+History:
+
+mkdir sowmya
+mkdir A
+mkdir b c d r t
+clear
+jnankfjnke
+kbjksbjdjs
+nnnjkk
+rmdir ABC
+rmdir sowmya
+rmdir b c d
+clear
+touch sowmya
+touch File1
+touch File2 File3 File4
+history
+ls
+rm sowmya
+rm File1
+rm File2 File3 File4
+pwd
+clear
+ls
+cd r
+pwd
+ls
+cd ac
+pwd
+ls
+clear
+
+
+Linux-2
+mkdir abc bca
+ls
+ls -l
+cd abc
+pwd
+mkdir sa
+ls
+touch File1
+ls
+cd sa
+pwd
+mkdir mbads
+pwd
+ls
+cd ..
+pwd
+cd ..

@@ -1,0 +1,109 @@
+Om
+Day-11
+22nd Aug 2024 (Wednesday)
+
+Git:
+Git is Open Source and 
+VCS.
+
+Version Control Systems: 
+it is used to store text based files in ur centralized repository.
+or
+is a practise which helps to store, monitor & track version of text based files & directories.
+or
+Common locations to store all ur files.
+& track 
+& Monitor files
+
+To solve:
+* to store in Local systems,
+* instead of storing in our Local repo, we r storing in centralized repo.
+(centralized repo: is like some center person)
+* track---->who made wt changes 
+
+Use:
+* Parallel development (everybody can work parallelly)
+  means: Multiple ppl r working at multiple things at the same time in git repo.
+* Authorization : u can add/give permissions to work on centralized repo.
+* Who, When & What ---->everything is tracked
+(who made the changes,
+When  made the changes 
+& 
+What made the changes)
+
+* Versioning-Backup of that particular file. (Changes)
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Terminologies:
+1. Version control system is based on  Client Server Architecture..
+
+   Client(Bank/User)<----> server(Mobile App/ATM/centralized repo)
+                
+
+              Bank       VCS
+   Client:    Phonepe    Git
+   Server:    HDFC       Github,Bitbucket
+
+
+2. Repository:
+
+   ----> Repository is nothing but Folders all the files  in a particular project is stored & maintained. 
+   (for each & every project)
+
+   Y we need we Repository?
+   allows us to store,track & monitor files for a specific / particualr project.
+
+3. Server:
+
+   -----> collection of repo.
+   or contains repos.
+   * Centraized Repo
+
+4. Client:
+
+   -----> which is comminucate with server..
+         * it help us to connect with ur server.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Terminologies:
+
+1. Checkout: Switch
+             is the process,
+                            where you take a file from  particular repo of a server.
+                            & 
+                            make it visable inside your local laptop/Workspace..
+
+             or 
+             downloading files from local repo to central repo
+
+Checkin / Commit: once ur done with ur files with addition or separation of things 
+then ur going to place that again in centralized repo.
+
+MetaData:
+-----> Who made the changes what was the changes has made/modified..
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+GitHub-Account Creation
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git commands:
