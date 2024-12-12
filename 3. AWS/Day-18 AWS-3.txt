@@ -1,0 +1,146 @@
+Om
+
+Day-18
+5th Sep 2024 (Thursday)
+
+AWS:
+
+Key Pair:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Realtime Q'
+
+in AWS, 
+EC2,
+in Metadata,
+u can see Key pair name : DevOpsB29
+
+imagine if key pair is gone/deleted(both pem & ppk)
+
+1. DevOpsB29 ---->key pair is gone from EC2
+2. Laptop keypair is gone(private key)
+
+how to retrive back?
+
+Ans:
+1st method,
+
+go to AWS IAM,
+Roles,
+Create a Role,
+Step:1
+select trusted entity
+select---->EC2
+----------->next
+Step:2
+Add permissions
+search or select for administrator access
+----------->next
+Steps:3
+Name, review and create
+Role name: DevOpsB29-EC2-Role
+----------->Create a Role
+
+role will be creating
+
+after creating role,
+
+go to EC2,
+refresh it,
+select DevOpsB29-ShellScripting
+right click on that,
+security,
+modify IAM role,
+select created role by name ---->DevOpsB29-ShellScripting(from drop down)
+----->update role
+
+wait for 5-6 mins(in production wait for 5-6 mins)
+::::::::::::::::::::::::::::::::::::::
+2nd method
+(in RT, 
+we should not delete/stop/reboot/shutdown the server, 
+how to achive this?)
+by for me i need now,
+right click on DevOpsB29-ShellScripting,
+u'll find reboot instance,
+
+after it up
+
+go to AWS services,
+
+Management & Governance,
+systems manager---->open in new window/tab,
+
+left side down click on session manager,
+click on start a session
+(Complete down, u'll find session manager),
+there down u'll find ur machine---->DevOpsB29-ShellScripting,
+
+select DevOpsB29-ShellScripting,
+click on start session
+
+$ bash ----->if u type bash
+ssm-ser@ip:/var/snap/amazon-ssm-agent/5656$ sudo su -
+root@ip:~# su - ubuntu
+ubuntu@ip:$ nano .ssh/authorized_keys
+
+click on Enter
+
+then down u can find the keys
+
+we need public key,
+so go to putty gen,
+load,(load ur laptop key)
+select all files,
+select laptop key
+save 
+ok
+
+when u load---->u'll find ur public key in Putty key generator
+10:17
+copy & paste it in ur notepad
+(note: dont copy ---->imported-openssh-key)
+
+go to ssm,
+
+press shift+insert (means its going to paste it here)
+
+control "O" + enter
+&
+control "X"
+
+ubuntu@ip:$
+$ cat .ssh/authorized_keys
+u'll find the pub key here
+
+so by this way we can get/generate/retrive key pair

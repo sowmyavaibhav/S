@@ -1,0 +1,527 @@
+Om
+
+Day-20
+9th Sep 2024 (Monday)
+Session: 5
+https://www.youtube.com/watch?v=8q1SwIheJfg
+
+AWS Topics:
+1. Attach 1 EBS volume to Multiple 
+   servers
+2. To Resize/change EBS volume
+3. Deletion on Termination:
+4. AMI
+   1. Default OS/AMI
+   2. Customise OS/AMI
+5. Snapshot
+6. Lifecycle Manager
+
+::::::::::::::::::::::::::
+EBS: 
+
+Yesterday:
+
+Create
+1. Create & Attach
+2. Detach & Attach
+3. Attach 1 EBS volume to Multiple servers
+all EBS volumes does not support Multiple  servers
+few will supports
+::::::::::::::::::::::::::
+1. Attach 1 EBS volume to Multiple servers
+
+Lab:
+
+1. create EBS volume,
+go to AWS console,
+EC2,
+EBS
+Volumes,
+create a volume,
+
+Note:
+if u see in Provisioned IOPS SSD, u'll find only there's a option ---->Enable Multi-Attach
+
+Volume type: General Purpose SSD (gp3)
+Size (GiB) : 1
+
+Volume type:  Provisioned IOPS SSD (io2)
+Size (GiB) : 1
+
+Enable Multi-Attach
+
+so by this way u can attach EBS volume to Multiple servers using only with Provisioned IOPS SSD (io2).
+
+::::::::::::::::::::::::::::::::::::
+2. To Resize/change EBS volume:
+
+if u want to increase the size,
+go to EBS volume,
+select the volume,
+Action,
+Modify the volume,
+
+size: 10
+
+$ lsblk
+:
+:
+xvda 10GB Disk
+:
+:
+
+
+now change 10 GB to 11 GB,
+
+go to console,
+size: 11
+
+modify
+
+$ lsblk
+:
+:
+xvda 10GB Disk
+:
+:
+
+
+$ lsblk
+:
+:
+xvda 11GB Disk ----->changed to 11 GB
+:
+:
+
+:::::::::::::::::::::::
+if u resize the EBS volume,
+if it does not reflects in lsblk command,
+then try to run below commands,
+
+# if u creating for Ext4 file systems,
+$ sudo resize2fs /dev/xvdf1
+
+# if u creating for xfs file systems,
+$ sudo xfs-growfs /dev/xvdf
+
+
+go to server,
+$ lsblk
+:
+: 9GB disk
+
+$ sudo resize2fs /dev/xvdf1
+:
+:
+
+:::::::::::::::::::::::::::::
+Volumes: r nothing but virtual Hard drives
+
+Volume types:
+1. EBS ----->file storage
+2. EFS ----->Block storage, old technology
+
+Diff:
+1. Increase performance
+2. Time is less
+3. IPOS is Increased
+4. Durability
+5. Availablity
+
+Diff B/w EBS EFS
+
+EFS
+1. Block storage
+2. pay for Provisioned capacity
+3. Limited storage
+4. Increase/decreased size manually
+5. stored redundantly in a single AZ
+6. 99% Availability
+7. faster performance 
+8. Automated Backups & snapshots
+
+::::::::::::::::::::::::::::::::
+3. Deletion on Termination:
+
+if u Enable ---->Deletion on Termination i EC2  instance ---->it it'll not be deleted Accidentally.
+
+Lab:
+Go to AWS,
+EC2,
+Select instance----> Ubuntu-server
+click on Instance state
+u'll find Terminate (delete) instance?
+
+if u see there,
+Termination protection is disabled
+
+if u click on ---->Terminate (delete) 
+then ur EC2 instance will be deleted.
+
+so i dot want to delete that,
+i want choose/to do Deletion on Termination option
+
+Go to AWS,
+EC2,
+Select instance----> Ubuntu-server
+Actions,
+Instance settings,
+click on change termination protection,
+now select/tick Enable 
+save
+
+Refresh EC2,
+
+EC2,
+Select instance----> Ubuntu-server
+click on Instance state
+u'll find Terminate (delete) instance?
+
+if u see there,
+Termination protection is Enable
+
+even though if u delete the EC2 server,
+it wont be deleting.
+
+
+:::::::::::::::::::::::::::
+4. AMI: (Amazon Machine Image)
+* OS for EC2 instance
+* Taking the Backup of ur Entire OS 
+  or 
+  customize version of ur OS. 
+
+2 types of OS:
+1. default OS / Images 
+   ----> which r given by AWS
+
+2. Customise OS/ Images 
+   ----> we can create
+
+
+::::::::::::::::::::::::::::
+
+To create a Image:
+
+$ mkdir ami
+$ ls
+ami
+
+go to AWS,
+EC2,
+select EC2 instance,
+Actions,
+Images & Templates,
+Create Image
+:
+: ---->select some options
+:
+Create Image
+
+to check whether the image is created or not?
+
+go to Images
+AMI,
+
+here,
+u can see the images.
+:::::::::::::::::::::::::::::
+1. To create Default OS/Images:
+Go to AWS console,
+Services,
+Search for ---->EC2,
+Instances,
+click on Launch Instance, 
+
+Name: new server
+OS: ubuntu 
+AMI: 
+:
+:
+:
+
+& Launch the Instance
+
+:::::::::::::::
+2. To create Custom OS/Images:
+Go to AWS console,
+Services,
+Search for ---->EC2,
+Instances,
+Quick AMI
+or
+My AMI's
+
+select ur AMI & Launch the Instance
+
+:::::::::::::::::::::::::::::
+Ami Usage case:
+1. Local to AZ's / region 
+
+Go to AWS console,
+
+now ur in Mumbai region,
+
+EC2,
+AMI,
+create AMI
+there u'll find ---->Destination Region then select the region
+copy AMI
+
+now come to another region like if u want to go with Singapore
+
+go to Singapore region,
+EC2,
+AMI's
+here u can find AMI by name ---->first is copied. 
+
+:::::::::::::::::::::::::::::
+5. Snapshot : Taking Back up of ur EBS 
+           volume.
+           * Capturing screen
+             or
+             Photo copy of it
+             or
+             replica
+             or
+             duplicate copy
+
+* wtever the data which is present at that point of time those details r Backup.
+
+Screenshot: Photo copy of it
+            or 
+            Image will be captured
+
+
+(Mumbai region)
+Lab:
+Go to AWS,
+EC2,
+Snapshot,
+create a Snapshot,
+select ---->Instance 
+Instance ID: ---->select Ubuntu server ID
+
+click on create Snapshot
+
+wait for few mins
+to create
+
+::::::::::::::::::::::::::::::
+
+Diff b/w AMI & Snapshot?
+
+AMI: ur taking the Entire Backup of 
+     files, OS, Configuration file 
+     for other services
+or
+* Backup of Entire EC2 instance
+* customize OS
+* Associated with EC2
+* Ami is a Bootable copy of whole  
+  EC2 instance.
+* collection of snapshots
+
+Snapshot: Backup of only EBS volumes 
+          not EC2.
+* Associated with EBS
+
+
+::::::::::::::::::::::::::::::::
+
+Q. How to take Backup of EBS Volume?
+Ans: u can take Snapshot
+
+
+:::::::::::::::::::::::::::::::::
+
+Use cases: 
+Snapshot: EBS volumes r Local to that AZ's
+
+* also copy AZ R to another AZ/R
+
+::::::::::::::::::::::::::::::::
+6. Lifecycle Manager
+
+if u want to take backup of Multiple EBS volumes, then we can opt for Lifecycle Manager
+
+Lifecycle Manager: Automatically creates the Backup ofur snapshots/EBS volumes.
+
+or
+Automatically create a snapshot/backup,
+of a EBS volume by using
+Lifecycle Manager
+
+go to AWS,
+EC2,
+Lifecycle Manager
+Amazon Data
+Lifecycle Manager
+retention, 
+copy 
+and
+deletion of snapshots
+and 
+AMIS
+
+
+Create new lifecycle policy
+Create custom or default policy
+O Custom policy
+O Default policy
+Automate the creation,
+Policy type
+EBS snapshot policy
+Next step
+
+Lifecycle Policy
+1. Custom policy
+2. Default policy
+
+
+retention: how many days u want to keep inside ur AWS account.
+
+:::::::::::::::::::::::::::
+
+Done
+
+
+
+:::::::::::::::::::::
+Next topics:
+1. Security Group
+2. UserData
+
+Host some applications
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S3 vs EBS vs EFS Comparision
+
+S3
+1. Storage Type Object Storage
+EBS
+Pricing
+Storage Size
+Unlimited Storage
+
+2. Block Storage
+EFS
+Pay as you Use
+limited Storage
+
+3. File Storage
+Pay for provisioned capacity Pay as you Use
+Unlimited Storage
+
+
+ 
+
+
+Increase/decrease size
+
+Scalability
+
+Unlimited Scalability
+
+manaually
+
+Unlimited Scalability
+
+Stored redundantly across
+
+Stored redundantly in a
+
+Stored redundantly across multiple
+
+Durability
+
+multiple Azs
+
+Single AZ
+
+Az
+
+Max is 99.99% with S3
+
+Availability
+Standard
+99.99%
+No SLAs
+Supports Data at Rest and
+Supports Data at Rest and
+Supports Data at Rest and Data in
+Security
+Data in Transit encryption
+Data in Transit encryption
+Transit encryption
+Back up and Use Versioning or cross-region Automated Backups and
+Restore
+replication
+Snapshots
+EFS to EFS replication
+Performance Slower than EBS and EFS
+Faster than 53 and EFS
+Faster than 53, Slower than EBS
+Accessible simulatenously from
+Publicly and Privately
+Accessible only via the
+multiple EC2 and on-premises
+Accessibility
+accessible
+attached EC2 instance
+instance
+Interface
+Web Interface
+File System Interface
+Web and File System Interface
+Media, Entertainment, Big
+Media, Entertainment, Big data
+data analytics, backups and
+Boot volumes, transactional analytics, backups and archives,
+archives, web serving and
+and NoSQL databases, da"
+web serving and content
+Use cases
+content management
+warehousing ETL
+management, home directories

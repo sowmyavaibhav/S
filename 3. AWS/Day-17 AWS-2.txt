@@ -1,0 +1,165 @@
+Om
+
+Day-17
+4th Sep 2024 (Wednesday)
+https://www.youtube.com/watch?v=pHPPdkzTskQ&t=37s
+
+AWS:
+
+1. EC2 Service (Elastic Compute Cloud)
+   * To create a server
+   *
+
+Lab:
+will create a server,
+
+Go to AWS console,
+Services,
+Search for ---->EC2,
+Instances,
+click on Launch Instance, 
+
+Name: new server
+OS: ubuntu 
+AMI: 
+Instance type: t2.micro ---->1CPU, IGB
+KP: create a new KP
+KP name: new key
+ed
+
+KP
+
+(one KP is downloaded in ur laptop)
+
+Launch Instance
+
+----------------------------
+
+wait for few sec's
+
+Status check Passed---->2/2
+Instance type ---->Running
+
+----------------------------
+Login to server,
+copy Public IP,
+
+or
+click on EC2,
+new server,
+connect,
+copy ---->ssh 
+or
+# through gitbash,
+ssh -i .permfile os@publicip
+
+
+go to desktop,
+go to KP which u downloaded,
+right click to open Git bash here,
+$ ssh -i newkey.perm ubuntu paste Public IP
+
+yes
+
+
+now ur inside ur server,
+$
+
+:::::::::::::::::::::::::::::::
+to login to server,
+we have many methods/ways like
+
+1. Gitbash,
+   ssh -i .permfile os@publicip
+
+2. Putty
+
+   Download putty,
+   & 
+   install it
+
+3. Moba xterm
+
+4. AWS,
+   select server,
+   connect,
+   it direcctly connects in AWS    
+   itself.
+
+:::::::::::::::::::::::::::::::::::
+
+IP Address: Unique no.
+Internet Protocol(IP)
+used to communicate with any server
+
+2 Types of IP address:
+
+1. Public IP
+   Anyboady can create/access over   
+   the IP resource over the 
+   internet. 
+   (outside the org)
+
+2. Private IP:
+   for internal usage
+   (like to 
+   maintainance/internal 
+   communication within the 
+   company/org)
+
+:::::::::::::::::::::::
+AMI : OS for ur server
+Instance Type: size of ur server/How much of RAM u need? /storage
+
+::::::::::::::::::::::::
+Lets us create a windows server,
+
+Services,
+Search for ---->EC2,
+Instances,
+click on Launch Instance, 
+
+Name: nwindows server
+OS: windows 
+AMI: 
+Instance type: t2.micro ---->1CPU, 1GB
+KP: create a new KP
+KP name: new key
+KP
+Launch Instance
+
+
+copy Public IP,
+
+or 
+connect
+RDP client,
+click on Get password
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

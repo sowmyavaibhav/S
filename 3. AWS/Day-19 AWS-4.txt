@@ -1,0 +1,620 @@
+Om
+
+Day-19
+6th Sep 2024 (Friday)
+Session: 4
+https://www.youtube.com/watch?v=HVF7s0OxraY
+
+AWS Topics:
+1. Elastic IP
+2. Elastic Network Interfaces (ENI)
+3. Volumes or EBS volumes
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::
+
+1. Public IP: it is used to connect from the internet.
+
+* if anyone have Public IP,
+they can connect it from internet.
+
+* ur  Public IP will always change,
+when u start/stop/restart(reboot) ur server.
+
+2. Private IP: it is used to connect only to the internal communication/ purpose.
+
+* ur Private IP will never change.
+
+Note:
+whenever u start/restart the service,
+this Public IP is getting changed/gives a new Pub IP.
+
+But the private IP, 
+will remains the same.
+
+so whenever, 
+i stop the server, 
+i need my Public IP to be 
+Constant IP/
+Default IP/
+Static IP/
+Permanent IP to my EC2 server.
+
+so how to create that? 
+
+1. Elastic IP: it is a service which give static IP to ur EC2 server/Instance.
+
+u can able to create a permanent IP/
+static IP,
+which will never change.
+
+so that IP we can create & assign it to ur EC2 instance.
+ 
+so wt happens is ....?
+* Even if u start/restart/stop the server, 
+this IP does not change.
+
+----------------------
+Lab:
+AWS console,
+EC2,
+Elastic IP,
+Allocate Elastic IP Address,
+select Network region---->ap-south-ia or 1b...
+Click on Allocate.
+
+here,
+Allocate means create.
+
+
+now this EIP is created,
+name it as first_eip,
+
+so, 
+now i need to attach this EIP(first_eip) to this EC2 server(ubuntu server)
+
+go to EIP,
+first_eip,
+click Associate Elastic IP address,
+Instance ---->choose ur EC2 server(i.e. ubuntu-server)
+click on Associate
+
+
+go to EC2,
+Refresh,
+
+in Ubuntu-server,
+if u move right-side, u can see Elastic IP is Associated/assigned/connected.
+
+::::::::::::::::::::::::::::::::
+Diff B/w Pubic IP & Elastic IP:
+Public IP : Free
+Elastic IP: Paid
+
+::::::::::::::::::::::::::
+go to EIP,
+select first_eip,
+Actions,
+Disassociate Elastic IP Addresses,
+Disassociate
+
+Disassociate means removing Elastic IP add from Ubuntu-server.
+
+go to EC2,
+Ubuntu-server,
+refresh it,
+here,
+ur Elastic IP is not there/release.
+
+now again to go to EIP,
+select first_eip,
+Actions,
+Release Elastic IP Addresses,
+Release
+
+now Elastic IP Address is deleted.
+
+Note:
+so this is how we can use EIP,
+Create EIP,
+Allocate,
+Disassociate,
+Release. 
+from ur/any EC2 server.
+
+::::::::::::::::::::::::::::::::::
+2. Network Interfaces: is nothing but creating ur ENI(Elastic Network Interface)
+
+
+Eg:
+1. Local computer getting IP add by NIC card(Network interface card)
+
+2. Virtual server getting public/private IP add by Elastic Network Interface(ENI)
+
+* Elastic Network Interface(ENI)
+ is a virtual card which provides IP's so that u can connect to the internet or to other computers.
+
+* u can have/attach Max 5 ENI per machine.
+
+* to increate ENI,
+u need to mail AWS support.
+
+* it is Local to Avaliablity Zone.
+means,
+if ur creating one ENI card in one 1a-AZ,
+so if u want to create ENI card in another 1b-AZ not possible.
+bcz,
+1a-AZ is Local to that Availability Zone.
+we cant use/crate same ENI card in one AZ,
+not be used in another AZ's.
+
+--------------------------------
+Lab:
+go to AWS console,
+EC2,
+Network Interfaces,
+create Network Interfaces,
+
+Description: name it---->abcd
+Subnet: select subnet
+SG: select SG
+
+Create Network Interface
+
+
+go to ENI,
+abcd,
+Actions,
+Attach ENI,
+VPC: select VPC,
+Instance: select ur Instance
+Attach.
+
+:::::::::::::::::::::::::::::::
+3. Volumes or EBS volumes: is nothing but Hard Disc/storage to ur EC2 server.
+
+Local Laptop ---->Hard Disc Drive (HDD)----->(1TB) ---->Drives/Partitions like c,d,e drives
+
+wt is the use of HDD?
+to store movies, files
+
+
+same for server,
+u need Images,
+store files,
+u need hard disc/Partitions like c,d,e drives
+
+in EC2 instances, 
+we r creating a hard disc drive called a Volumes or EBS volumes
+
+Elastic Block storage (EBS) volumes:
+1. Virtual Hard Drive to EC2 instance.
+
+2. Virtual storge volume, attach to EC2 instance.
+
+3. Whenever u create a new EC2 instance,
+By Default 1 EBS volume is gets created which is 8GB.
+(from AWS)
+this Drive or volume,
+we call it as a Root Drive.  
+
+::::::::::::::::::::::::::::::::::::
+Eg:
+Laptop ---->1 TB
+
+2 types of Drives:
+
+1. HDD: Hard Disc Drive 
+---->old technology
+* for R/W operations r bit slow here
+* IOPS is less
+Eg:
+* if ur a student for lesser budget,
+  u can go for the HDD. 
+
+2. Solid State Disc
+---->New Technology 
+* with R/W operations with increased performance.
+* IOPS is more 
+that's R/W we call it as IOPs
+Eg:
+* for Gamer need high performance.
+
+IOPS: Input Output Per Sec 
+
+:::::::::::::::::::::::::
+wt type of Volume u required for EC2 instance?
+
+Diff types of Volumes:
+
+Volumes:
+1. SSD
+   1. General Purpose SSD 
+      1. (gp3)
+      2. (gp2)
+   2. Provisioned IOPS SSD 
+      1. (io1)
+      2. (io2)
+  
+2. HDD
+   1. Cold HDD (sc1)
+   2. Throughput Optimized HDD(st 1)
+
+3. Magnetic (standard) ---->old technologies
+
+Q. How to decide wt kind of Hard Drive / Volume  u need in EC2?
+Ans:
+1. kind of performace
+   like decreased/increased/mid performance
+2. cost ---->high or low
+3. IPOS ---->how  many jobs u want to perform in a single sec's
+3. Throughput ----> no. of processes 
+EC2 machine/volume can complete per second.
+
+:::::::::::::::::::::::::::::::::
+Q. I wanted to see wt is the Volume which is already there/exited in my EC2 instance?
+or 
+size of that volume?
+
+Lab:
+go to AWS,
+EC2,
+ubuntu -server,
+copy Public IP
+
+go to Desktop,
+go to AWS Folder,
+Git bash here,
+$ ssh -i keyname.pem ununtu@publicip
+
+yes
+yes
+
+ubuntu@ip $ lsblk 
+:
+:
+xvda 202:0 0 8G 0 Disk ---->this is my total Hard disc
+:
+:----->multiple partitions
+:
+
+lsblk stands for List Block Storage
+it gives the information about all of ur volumes 
+like wt is the total size? 
+which is used?
+
+lsblk is a command which displays available EBS volumes which is attached to ur EC2 instance.
+
+:::::::::::::::::::::::::
+44:25
+Interview Q'
+Q. How do u attach volume to ur EC2 instance? tell me the steps
+Ans: 
+    To create a volume & attach to ur EC2 instance.
+
+Steps:
+1. Create a volume in AWS console,
+2. Need to attach EBS volume to  
+   which ever EC2 instance u want.
+3. Create a File System
+   like EXT4,ntfs,xvda,xfs,xvdf 
+   
+   $ sudo mkfs.ext4 /dev/xvdv
+     here,
+     mkfs is make file system
+     .ext4 is file name 
+    /dev/xvdv ----> to u drive ur   
+    creating? 
+4. u just need to create directory 
+   $ sudo  mkdir /cdrive
+5. go to ur root directory,
+   $ cd /
+   $ ls
+     :
+     :
+     cdrive ---->is created
+6. u need to attach this File System to ur Directory
+   $ sudo mount /dev/xvdv /cdrive 
+
+   $ mountpoint /cdrive
+    /cdrive is mountpoint ---->if u get this o/p,
+    then ur successfully crated EBS volume & attached to one of ur cdrive.
+   $ lsblk
+     :
+     :
+     xvdv 5G  disk /cdrive
+
+   $ cd /
+   $ cd cdrive
+   $ sudo touch 1  2 3
+   $ ls
+     1  
+     2 
+     3 ---->is created
+:::::::::::::::::::::::::::::::
+
+Lab:
+1. create a volume in AWS console,
+
+create volume
+EC2,
+EBS,
+create volume,
+volume type: gp3
+size: 5 GB
+AZ: ap-south-b
+
+click on create volume
+
+name  it as new-ebs-volume
+
+volume state: is creating wait for few sec's,
+it will be in available state
+
+2. Need to attach EBS volume to which ever EC2 instance u want.
+
+select the new-ebs-volume,
+Actions,
+Attach volume,
+Instance ----->select ur EC2 instance
+Device name: /dev/sdv
+
+click on Attach volume
+
+go to Ubuntu server,
+ubuntu@ip $ lsblk 
+:
+:
+xvda 202:0 0 8G 0 Disk 
+:
+:
+:xvdv        5G disk ----->this is volume which we have attached to EC2 instance with 5GB
+
+3. Create a File System
+
+sudo mkfs.ext4 /dev/xvdv
+ 
+
+here,
+mkfs is make file system
+.ext4 is file name 
+to u drive ur creating? ----?/dev/xvdv
+
+
+$ sudo mkfs.ext4 /dev/xvdv
+:
+:
+
+file system is created
+
+how do confirm how do u created file system or not?
+Ans: sudo file -s /dev/xvdv
+
+$ sudo file -s /dev/xvdv
+or
+ubuntu@previous-hostname: ~ $ sudo file -s /dev/xvdv
+dev/xvdv: Linux rev 1.0 ext4 filesystem data, UUID=21b69f7f-26e2-49ab-9e8c-8dff
+17b098b7 (extents) (64bit) (large files) (huge files)  ------>by this command/ means file system is created
+ubuntu@previous-hostname :~ $
+
+4. u just need to create directory 
+(note:under root directory u need to create it)
+mkdir /cdrive
+ubuntu@ip$
+$ sudo  mkdir /cdrive
+$ 
+
+5. go to ur root directory,
+$ cd /
+$ ls
+:
+:
+cdrive ---->is created
+
+6. u need to attach this File System to ur Directory
+$ sudo mount /dev/xvdv /cdrive 
+$  ---->its attached/assigned
+
+mount means attach ur volume to ur EC2 instance/folder
+
+# to check whether this is attached to ur cdrive or not?
+$ mountpoint /cdrive
+/cdrive is mountpoint ---->if u get this o/p,
+then ur successfully crated EBS volume & attached to one of ur cdrive.
+$ 
+
+$ lsblk
+:
+:
+xvdv 5G  disk /cdrive
+
+$ cd /
+$ cd cdrive
+$ sudo touch 1  2 3
+$ ls
+1  
+2 
+3 ---->is created
+
+::::::::::::::::::::::::::::
+Short Cut Explaination:
+
+Q. How do u attach volume to ur EC2 instance?
+Ans:
+1. Create a volume,
+2. Attach a volume to EC2 instance,
+3. lsblk ---->it shows wtever  the volumes r available
+4. file system  ---->create a file system
+sudo mkfs.ext4 /dev/xvdv
+sudo file -s /dev/xvdv --->to confirm filesystem created or not ?
+5. sudo mkdir new-dir --->to create a directory in root location
+6. cd /
+7. mount(attach) /dev/xvdv /cdrive
+   mountpoint /cdrive --->to mount to directory
+8. mountpoint /cdrive ---->to confirm whether its created or not?
+
+::::::::::::::::::::::::::::
+
+Note:
+EBS volumes must be created in the same AZ as of EC2 instance.
+(same AZ)
+
+::::::::::::::::::::::::::::
+
+Interview Q'
+1. Created New EBS volume & succuffuly attach EC
+2. Deatch 
+
+umount is the command which is used to detach/remove EBS volume from ur EC2 instance.
+
+$ umount /cdrive
+umount: /cdrive must be superuser to unmount.
+
+$ sudo umount /cdrive
+umount: /cdrive: target is busy
+
+so why it is not detaching/deleting/removing/unmount ?
+bcz ur in Cdrive,
+
+$ pwd
+/cdrive
+
+$ cd ..
+$ pwd
+$ sudo umount /cdrive
+$ lsblk
+:
+:
+
+$ mountpoint /cdrive 
+/crive is not a mountpoint
+
+or
+come to AWS console,
+Volumes,
+new_ebs_volumes,
+Action,
+detach
+
+if u see the volume state,
+it will changes from In-Use to Available(no EC2 instances r used)
+refresh it
+
+::::::::::::::::::::::::::::
+Create a New EC2 instance
+& Attach a volume which is in detach
+
+Go to AWS console,
+Services,
+Search for ---->EC2,
+Instances,
+click on Launch Instance, 
+
+Name: new server
+OS: ubuntu 
+AMI: 
+Instance type: t2.micro ---->1CPU, IGB
+KP: create a new KP
+KP name: new key
+ed
+KP
+
+Launch Instance
+
+
+login to server,
+$ ssh -i key.pem ubuntu@public-ip
+
+$ lsblk
+:
+:
+
+root volume we r in now.
+
+go to AWS console,
+EBS,
+volume,
+Actions,
+Attach volume,
+select the instance ---->new server
+device name: /dev/xvdbl
+
+click on Attach volume
+
+go to server,
+$ lsblk
+:
+:
+xvdbl 5gb is attached
+
+so i want to remove file system in ubuntu server(1st server),
+& 
+not to attach file system in new server(2nd  server)
+
+note:
+here,
+we should not attch file sytem in 2nd server
+
+bcz we have already created a fs(in 1st server) during our initial stage,
+so no need of creating a FS again in 2nd server.
+if u try to create a new fs here (in 2nd server),
+
+so for 2nd server,
+we can not add/create fs,
+wtever the content/files r available all r deleted,
+so thats the reason,
+we no need to create a fs again.
+
+first fs is already exits,
+
+Note:
+do not create a fs(for 2nd + servers),
+as its already exits.
+:::::::::::::::::::::::::::::
+#not to use this command
+$ sudo mkfs.ext4 /dev/xvdv
+
+as it will delete the previous content/files
+::::::::::::::::::::::::::
+
+$ sudo file -s /dev/xvdbl
+:
+:----->file sytem is already there,
+so no need to create file system
+$  
+
+$ mkdir /second
+error
+
+$ sudo !!
+
+or
+$ sudo mkdir /second
+
+$ cd /
+$ ls
+/second
+$ sudo mount /dev/xvdbl
+/second
+$ mountpint/second
+/second is mountpint 
+
+::::::::::::::::::::::::::::
+Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
