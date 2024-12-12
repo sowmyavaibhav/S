@@ -1,0 +1,449 @@
+Om
+Day-13
+26th Aug 2024 (Monday)
+
+Git:
+
+-----------------------------------
+Installation step for Git in Windows
+
+-------------------------------------
+
+go to Desktop,
+right anywhere to open Git bash here,
+$ git -v
+2.43
+-------------------------------------
+
+Create GitHub Account
+
+--------------------------------------
+go to GitHub Account,
+to Create a New Repository,
+
++ (click on Plus symbol),
+New Repository
+Name: Amazon
+Select---->Public
+click on create Repository
+
+---------------------------
+Estashbish a connection b/w ur Local to GitHub repository:
+
+open Gitbash,
+
+#creating Public & Private keys
+$ ssh-keygen -t rsa -b 4096 -C "ksowmya1102@gmail.com"
+:
+click on Enter
+click on Enter or (ifit is existing click on Y)
+click on Enter
+
+----------------------------------
+
+go to c drive 		
+go to users
+go to user name (your user name)
+go inside .ssh folder
+open idrsa.pub   or   idrsa or
+1kb file in note pad  , copy it
+
+		now go to your git hub acct ------>  go to settings =====> go to ssh and gpg keys
+
+hers add new ssh key ,, provide any name and add the key and save
+
+-------------------------------
+$ mkdir git_repo
+$ cd git_repo
+$ git remote -v
+fatal: not a git repo (or any of the parent directories): .git
+
+$ git init  ---->so normal  folder is converted into git folder
+
+$ git config --global user.name "Sowmya"
+ 
+$ git config --global user.email "ksowmya1102@gmail.com"
+
+$ git config --list ---->here u can see ur username & email id
+
+-------------------------------------
+
+$ git remote -v ---->list down if there r any remote destinations 
+
+$ git remote add origin https://github.com/sowmyavaibhav/Amazon.git 
+
+here,
+remote is centralized repo,
+add origin is ur Destination
+
+Source -----> ur laptop
+Destination ----> ur folder/server/fb project
+
+$ git remote -v 
+origin  git@github.com:sowmyavaibhav/terraform.git (fetch)
+origin  git@github.com:sowmyavaibhav/terraform.git (push)
+
+---------------------------------
+go to GitHub.com,
+Amazon
+create a file by name: amazon_project_details
+
+this is my first project
+
+commit changes
+------------------------
+$ ls
+$
+
+now i want to clone this into my local repo,
+
+$ git clone https://github.com/sowmyavaibhav/Amazon.git
+:
+:
+
+$ ls
+amazon
+
+$ cd amazon
+
+$ ls
+amazon_project_details
+
+
+$ vi login.java
+this is my java based project
+
+ESC:wq!
+
+$ ls
+amazon_project_details
+login.java
+
+$ git status
+Untracked files ---->Working state
+(RED color)
+
+$ git add login.java
+or
+$ git add . 
+here,
+dot is wtever the files available
+
+$ git status
+tracked files ---->Staging Area
+(GREEN COLOR)
+
+$ git commit -m "this is my first commit"
+
+$ git push
+
+Refresh GitHub,
+u can able to see ---->login.java folder
+u can see the content, commit message here
+
+------------------------------------
+$ git log ---->it will give u detail 
+view how many commits u have done
+:
+:
+:
+unique id
+creates metadata
+who/when/wt he did
+
+$ git log --oneline ---->short c'id
+:
+:
+
+$ git log -1 ---->it gives only top commit(latest c')
+
+
+$ git log -2 ---->it gives 2 top commit id
+
+$ git show c'd
+:
+:
+1. git log ---->minimal info
+2. Author
+3. date
+4. diff
+
+:::::::::::::::::::::::::::::
+go to GitHub.com,
+Amazon
+create a file by name: User_name
+
+my first project
+
+commit changes
+------------------------
+$ ls
+amazon_project_details
+login.java
+
+so there is no file sync in local rep
+
+$ git pull 
+
+$ ls
+amazon_project_details
+login.java
+User_name
+
+Note:
+clone is used for first time only
+pull: brings the latest changes from remote to local from 2nd time
+
+::::::::::::::::::::::::::::::
+git pull & git fetch both the same commands
+
+pull: brings the latest changes from remote to local 
+fetch: brings the latest changes from remote to local
+
+diff?
+task
+
+
+
+------------------------------------
+1:03
+
+Go to GitHub,
+go to repo ---->Amazon,
+create a new branch by name: dev
+
+main branch
+sub branch ---->dev
+
+----------------------
+go to Gitbash here,
+
+$ git branch
+* main ---->current branch
+
+$git pull
+
+$ git branch
+* main
+
+$ git branch -a 
+* main
+remote/dev
+default branch
+
+#i want to move/switch from main branch to dev branch
+
+$ git checkout dev
+
+$ git branch
+* dev
+main
+
+$ ls
+:
+:
+--------------------
+$ vi logout.java
+this is logout page
+
+$ ls
+:
+:
+
+$ git status
+Un-Tracked file
+
+$ git add .
+
+$ git status
+Tracked file
+
+$ git commit -m "commit from dev branch"
+
+$ git push
+
+refresh GitHub,
+it is reflecting
+
+dev branch,
+all 4 files r displayed
+
+main branch
+only 3 branches displayed
+
+-----------------------
+git branch -a : it displays all the branches in ur repo
+
+Git checkout : is the command which is used to switch b/w ur branches.
+
+git switch: is the command which is used to switch b/w ur branches.
+
+-------------------------------
+git switch: is the command which is used to switch b/w ur branches.
+
+$ git branch
+*dev
+main
+
+$ git switch main
+
+$ git branch 
+* main
+dev
+-------------------------------------
+switch b/w commit id's: git s
+
+git switch --detach fc0d072
+
+git switch branchname
+
+
+git branch
+
+git branch -a
+
+---------------------
+Assignment:
+
+git fetch:
+
+
+
+:::::::::::::::::::::::::::::::::
+Done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Git status
+whether the file is tracking/untracked/changed stage or local repo
+
+
+
+
+
+
+
+
+ 
+
+
+
+ssh-keygen -t rsa -b 4096 -C "quantumcloudtechie@gmail.com"
+
+		go to c drive 
+		
+		go to users
+		
+		go to user name (your user name)
+		
+		go inside .ssh folder
+
+		open idrsa.pub   or    1kb file in note pad  , copy it
+
+		now go to your git hub acct ------>  go to settings =====> go to ssh and gpg keys
+
+hers add new ssh key ,, provide any name and add the key and save
+
+
+ 
+  
+git config --global user.name "sachin-rma-02"
+  
+git config --global user.email "quantumcloudtechie@gmail.com"
+
+git config --list
+
+
+git init
+
+git remote add origin https://github.com/sachin-ram-02/facebook.git
+
+
+git remote -v
+
+git clone https://github.com/sachin-ram-02/facebook.git
+
+
+cd to that folder
+
+make some changes
+
+git status
+
+git add .  or file name
+
+git status
+
+git commit -m "messages"
+
+git status
+
+git push
+
+git log
+
+git log --oneline
+
+git show commit id
+
+
+git pull
+
+git fetch
+
+
+git checkout commit id
+
+git checkout main
+
+
+git switch --detach fc0d072
+
+git switch branchname
+
+
+git branch
+
+git branch -a
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+

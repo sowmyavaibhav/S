@@ -1,0 +1,284 @@
+Om
+Day-12
+24nd Aug 2024 (Saturday)
+
+Git:
+
+Work Flow of Git & GitHub:
+(how it will communicate?)
+
+1. git clone: is a cmd used to download/copy/bring the files/content 
+              from remote repo to  ur local repo/ur computer for the first time.
+
+  $ git clone url/link
+
+  Eg:
+  mkdir git_repo
+  mkdir ABCD
+  mkdir Sowmya
+             ----->Normal Folder 
+
+i want to create normal repo/folder ---->ABCD to git repository?
+so for that we need to use git init cmd.
+
+  git init
+
+2. git init
+   * Initialize/create an Empty git repo.
+   or
+   * git init will convert normal Folder/Dir into git repository
+
+go to Gitbash here,
+$ ls
+:
+:
+
+$ mkdir sowmya
+$ ls
+:
+:
+sowmya
+
+$ cd sowmya
+$ ll ----->long listing
+     ----->it will shows all the hidden files,everything in ur pwd.
+: ./  -----> hidden files
+: ../ -----> hidden files
+
+
+now i want to convert this normal folder("./"; "../") into a git folder
+
+$ git init ---->it will convert normal folder to a git folder
+:
+
+$ ll
+:
+./
+../
+.git/ ---->git folder
+
+3. git push: is used to push the changes from local repo to the remote repo.
+
+  $ git push
+
+4. git pull: from 2nd time, 
+   is a cmd to take/bring/download the latest changes / file from Remote repo to Local repo.
+  
+   $ git pull
+
+Q. Wt Pull does?
+Ans: it just updates our workspace.
+
+5. git fetch: 
+       is a cmd to take/bring/download the latest changes / file from Remote repo to Local repo.
+
+6. Branch: 
+this is a main branch,
+we can create Multiple branches,
+we can order to facilitate paralel development & Restricted access to users.
+
+y?
+use?
+
+Types of Repository(folder/dir)
+1. Remote/Centralized (stored in GitHub)
+2. Local Repo (Laptop, where we have clone inside ur laptop in a dir/folder)
+
+Git Workflow:
+
+AWS,
+EC2,
+$ git --version
+2.43
+$
+
+$ pwd
+/home/ubuntu ---->this is a local repo
+
+1:00:00
+
+In git Application we have 3 Areas (Local/laptop):
+3 Areas:
+1. Working Area: UN-Tracked 
+2. Staging Area: Tracked (add) 
+3. Local Area: Commit-ID
+
+Working Area----|Add|---->SA-------|Commit-ID|---->Local Area
+ Un-Tracked          Tracked Area 
+                     Metadata
+
+1. Working Area: space/location where u start adding/modifying the files in local computer
+2. Staging Area
+3. Local Area/Repository
+
+$ ls
+:
+
+$ cd git practice/
+$ git clone url
+:
+: 
+facebook
+
+$ 
+
+----->so wtever things we r adding r working area
+* inside ur WA, wtever the file u have all these files r Un-Tracked from git.
+
+
+2. Staging Area:
+
+to make file to untracked stage or to move 
+or
+to convert Un-Tracked files to Tracked files
+
+so u need to use command ---->git add
+then its going to track the files
+(git Radar)
+
+3. Local Area: 
+
+
+
+$ cd ..
+$ cd ..
+$ ls
+:
+:
+$ cd local repo
+$ vi file1.jave
+This java file
+
+$ cat file1.java
+This java file
+$ git init
+
+$ git status ---->Untracked stage
+(RED COLOR)
+(Untracked stage means file is till into WA)
+
+
+$ git add file1.java
+
+$ git status
+ ---->Tracked stage
+(Green COLOR)
+(Tracked stage means file is in SA)
+
+suppose,
+if u can some content in the file,
+like,
+$ vi file1.java
+This java file
+This is java based file
+
+$ git status
+
+Un-Tracked file (Red Color)---->WA
+
+$ git add file1.java
+
+$ git status
+
+Tracked file (Green color) ---->SA
+---->this file is in Radar
+
+...............................
+
+Metadata: information is stored
+who made the changes ?
+why he made the changes ?
+when he made the changes ?
+wt changes ?
+
+* so in Staging Area,
+1. Un-Tracked files r converted into Tracked files.
+
+2. it Metadata gets created/stored.
+or (creates MD for this coverts)
+
+3. we cant see SA, as its in Virtual space,
+wr it creates a metadata/snapshot for that file/group of file.
+
+....................................
+
+$ vi file1.java
+This java file
+This is java based file
+This is 3rd line
+
+$ git status
+
+$ git add file1.java
+
+
+3. Local Repo:
+once we move from SA to LR,
+it creates a Commit-ID
+(like Transtion-ID in Bank)
+
+$ 
+
+go to AWS console,
+EC2,
+copy Pub IP
+
+
+open aws folder,
+
+go to Gitbash here,
+
+$ ssh -i LAPTOPKEY.pem ubuntu@public ip
+
+Enter
+
+Enter
+,
+
+$ git status
+
+$ ls
+:
+:
+$ cd local repo/
+
+$ ls
+:
+
+$ vi file2.java
+Second fie
+
+$ git status
+        ----> Un-Tracked Staged
+        ----> WA to SA
+
+$ git add file2.java
+
+$ git status
+        ---->Tracked Staged
+        ----> SA
+        ---->Metadata: info stored
+
+$ git commit -m "This is my first commit"
+$ git status 
+          ----> SA to LR
+          ---->a commit ID is created
+
+$ git log
+commit-id-1
+:
+:
+:
+
+:::::::::::::::::::::::::::
+Tomorrow: 
+
+HEAD:
+
+::::::::::::::::::::::::::::::::
+Done
+
+
+
+
+

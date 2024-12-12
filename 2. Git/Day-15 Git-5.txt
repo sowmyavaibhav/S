@@ -1,0 +1,29 @@
+Om
+Day-15
+28th Aug 2024 (Wednesday)
+
+Git:
+
+Roles & Responsibilities:
+1. Managing ur repo(G&GH)
+2. Merging conflicts, merge Child &  parent branch
+
+
+add : copied w to s
+         a temp head ref is created
+
+undo changes (c+z)
+
+befoew  the commit
+
+git reset --soft --mixed --hard
+
+
+w          s           r
+
+
+del      del
+soft: deletes only r
+mixed: deletes s,r
+hard mode : remove all stages
+

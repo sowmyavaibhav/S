@@ -1,0 +1,60 @@
+Om
+Day-14
+27th Aug 2024 (Tuesday)
+
+Git:
+
+Git bash,
+$ 
+
+
+copy of file/xerox/photo of file
+
+Head : Pointer ---->Head always points to latest Commit ID
+
+$ git log --oneline
+:
+:
+:
+
+$ git touch 123
+ 
+$ git add .
+$ git commit -m "message"
+
+$ git log --oneline
+commit-id1
+commit-id2
+commit-id3
+:                 ----->latest C'ID
+:
+:
+
+$ ls
+:
+:
+
+$ git checkout commit-id3
+
+
+
+:::::::::::::::::::::::::::
+
+merge
+
+
+:::::::::::::::::::::::::::
+merge
+Rebase
+
+:::::::::::::::::::::::::::
+Pull Request/change request/merge request
+
+merge main branch with other br
+
+
+
+
+
+
+
